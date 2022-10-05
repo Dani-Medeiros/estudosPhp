@@ -1,0 +1,49 @@
+html {
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    background-color:antiquewhite;
+    color:tomato;
+    margin-left: 150px;
+    margin-right: 150px;
+}
+
+
+.cabecalho {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: center;
+}
+
+.principal-home, .sobre {
+    padding-top: 50px;
+}
+
+.cadastro {
+    width: 500px;
+    text-align: start;
+}
+
+a {
+    text-decoration: none;
+    color: tomato;
+}
+
+.lista-cabecalho, ul, li {
+    width: 800px;
+    display: flex;
+    flex-direction: row;
+    text-decoration: none;
+    text-align: end;
+}
+
+.section-cad_aluno, .section-cad_professor {
+    width: 400px;
+    justify-content:flex-start;
+    padding-top: 50px;
+    text-align: start;
+}
+
+.form-cad_aluno, .form-cad_professor {
+    justify-content: center;
+}
