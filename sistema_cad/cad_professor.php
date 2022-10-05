@@ -20,16 +20,21 @@
                     <p>Cadastro Professor</p>
                     <hr><br>
                     Nome:<br>
-                    <input type="text" name="nome" id="nome"><br>
+                    <input type="text" name="nome" id="nome" required><br>
                     E-mail:<br>
                     <input type="email" name="email" id="email"><br>
                     Celular:<br>
                     <input type="tel" name="celular" id="celular"><br>
+                    CPF:<br>
+                    <input type="text" name="cpf" id="cpf" required><br>
                     Data de nascimento:<br>
                     <input type="date" name="nasc" id="nasc"><br><br>
-                    <input type="radio" name="turno" id="turno" value="manha">manhã<br>
-                    <input type="radio" name="turno" id="turno" value="tarde">tarde<br>
-                    <input type="radio" name="turno" id="turno" value="noite">noite
+                    <select name="opcoes-turno" id="opcoes-turno">
+                        <option value="turno-manha">Manhã</option>
+                        <option value="turno-tarde">Tarde</option>
+                        <option value="turno-noite">Noite</option>
+                    </select><br><br>
+                    <input type="submit" value="Enviar dados">
                 </form>
             </div>
         </section>

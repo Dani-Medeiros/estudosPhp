@@ -20,7 +20,7 @@ session_start();
 
     <section class="section-cad_aluno">
         <div class="div-cad_aluno">
-            <form action="" method="post" class="form-cad_aluno">
+            <form action="db_alunos.php" method="post" class="form-cad_aluno">
                 <p>Cadastro Aluno</p>
                 <hr><br>
                 Nome:<br>
@@ -30,10 +30,13 @@ session_start();
                 Celular:<br>
                 <input type="tel" name="celular" id="celular"><br>
                 Data de nascimento:<br>
-                <input type="date" name="nasc" id="nasc"><br><br>
-                <input type="radio" name="turno" id="turno" value="manha">manhã<br>
-                <input type="radio" name="turno" id="turno" value="tarde">tarde<br>
-                <input type="radio" name="turno" id="turno" value="noite">noite
+                <input type="date" name="nasc" id="nasc"><br>
+                <br>
+                <input type="radio" name="turno-manha" id="turno" value="manha">manhã<br>
+                <input type="radio" name="turno-tarde" id="turno" value="tarde">tarde<br>
+                <input type="radio" name="turno-noite" id="turno" value="noite">noite<br><br>
+                <input type="submit" value="Enviar dados">
+
             </form>
         </div>
     </section>
