@@ -24,17 +24,17 @@ session_start();
                 <p>Cadastro Aluno</p>
                 <hr><br>
                 Nome:<br>
-                <input type="text" name="nome" id="nome"><br>
+                <input type="text" name="nome" id="nome" required><br>
                 E-mail:<br>
-                <input type="email" name="email" id="email"><br>
+                <input type="email" name="email" id="email" required><br>
                 Celular:<br>
-                <input type="tel" name="celular" id="celular"><br>
+                <input type="tel" name="celular" id="celular" pattern="^\([1-9]{2}\) (?:[2-8]|9[1-9])[0-9]{3}\-[0-9]{4}$" placeholder="(xx) xxxxx-xxxx"><br>
                 Data de nascimento:<br>
-                <input type="date" name="nasc" id="nasc"><br>
+                <input type="date" name="nasc" id="nasc" required><br>
                 <br>
-                <input type="radio" name="turno-manha" id="turno" value="manha">manhã<br>
-                <input type="radio" name="turno-tarde" id="turno" value="tarde">tarde<br>
-                <input type="radio" name="turno-noite" id="turno" value="noite">noite<br><br>
+                <input type="radio" name="turno" id="turno" value="manha">manhã<br>
+                <input type="radio" name="turno" id="turno" value="tarde">tarde<br>
+                <input type="radio" name="turno" id="turno" value="noite">noite<br><br>
                 <input type="submit" value="Enviar dados">
 
             </form>

@@ -16,23 +16,23 @@
     <main>
         <section class="section-cad_professor">
             <div class="div-cad_professor">
-                <form action="" method="post" class="form-cad_professor">
+                <form action="db_professores.php" method="post" class="form-cad_professor">
                     <p>Cadastro Professor</p>
                     <hr><br>
                     Nome:<br>
                     <input type="text" name="nome" id="nome" required><br>
                     E-mail:<br>
-                    <input type="email" name="email" id="email"><br>
+                    <input type="email" name="email" id="email" required><br>
                     Celular:<br>
-                    <input type="tel" name="celular" id="celular"><br>
+                    <input type="tel" name="celular" id="celular" pattern="^\([1-9]{2}\) (?:[2-8]|9[1-9])[0-9]{3}\-[0-9]{4}$" placeholder="(xx) xxxxx-xxxx"><br>
                     CPF:<br>
                     <input type="text" name="cpf" id="cpf" required><br>
                     Data de nascimento:<br>
                     <input type="date" name="nasc" id="nasc"><br><br>
                     <select name="opcoes-turno" id="opcoes-turno">
-                        <option value="turno-manha">Manhã</option>
-                        <option value="turno-tarde">Tarde</option>
-                        <option value="turno-noite">Noite</option>
+                        <option name="turno" value="manha">Manhã</option>
+                        <option name="turno" value="tarde">Tarde</option>
+                        <option name="turno" value="noite">Noite</option>
                     </select><br><br>
                     <input type="submit" value="Enviar dados">
                 </form>
