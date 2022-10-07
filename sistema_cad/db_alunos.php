@@ -7,8 +7,6 @@
     $password = '';
     $database = 'escola_teste';
     $table_alunos = 'alunos';
-    
-    //include_once 'conexao.php';
 
     function dadosFormulario() {
 
