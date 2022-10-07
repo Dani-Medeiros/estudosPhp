@@ -1,5 +1,14 @@
 <?php
+
     session_start();
+    
+    $hostname = 'localhost';
+    $user = 'root';
+    $password = '';
+    $database = 'escola_teste';
+    $table_alunos = 'alunos';
+    
+    //include_once 'conexao.php';
 
     function dadosFormulario() {
 
@@ -15,19 +24,10 @@
 
     }
 
-    $hostname = 'localhost';
-    $user = 'root';
-    $password = '';
-    $database = 'escola_teste';
-    $table_alunos = 'alunos';
 
-    // $conexao = mysqli_connect($hostname, $user, $password) or die ("Não foi possível conectar ao banco de dados");
-    // mysqli_select_db($conexao, $database);
-    // mysqli_close($conexao);
-
-    function conectar($database, $user, $password, $hostname)
+    function conectar($hostname, $user, $password, $database)
     {
-        $conectar = mysqli_connect($hostname, $user, $password);
+        $conectar = mysqli_connect($hostname, $user, $password, $database);
 
         if(!$conectar) {
             die (trigger_error('Não foi possível conectar ao banco de dados'));
@@ -39,15 +39,23 @@
                 die (trigger_error('Não foi possível conectar ao banco de dados'));
                 return false;
             } else {
-                return $conectar;
+                $conn = array(
+                    '0' => $conectar,
+                    '1' => $conexao
+                );
             }
         }
+
+        return $conn;
     }
 
-    function lista_alunos($conexao)
+    function lista_alunos($conectar)
     {
-
-        $resultado = mysqli_query($conexao, 'SELECT * FROM alunos');
+        $dados_form = dadosFormulario();
+        $resultado = mysqli_query(
+            $conectar[0],
+            'SELECT * FROM alunos'
+        );
         
         if($resultado) {
             $result = mysqli_fetch_assoc($resultado);
@@ -59,8 +67,31 @@
         return $result;
     }
 
-    
-    // conectar($database, $user, $password, $hostname);
+    function inserirDados($conexao, $dados)
+    {
+        $inserir = mysqli_query($conexao[0], 
+            'INSERT INTO alunos (
+                nome, email, telefone, data_nasc, turno) 
+            VALUES (
+                "'.$dados['nome'].'",
+                "'.$dados['email'].'",
+                "'.$dados['celular'].'", 
+                "'.$dados['nasc'].'", 
+                "'.$dados['turno'].'"
+            )'
+        );
 
-   var_dump(lista_alunos(conectar($database, $user, $password, $hostname)));
+        return $inserir;
+    }
+
+    if(inserirDados(conectar($hostname, $user, $password, $database), dadosFormulario()) == false) {
+        echo 'Erro ao enviar os dados.';
+    } else {
+        return true;
+    }
+
+    // var_dump(conectar($hostname, $user, $password, $database));
+    var_dump(lista_alunos(conectar($hostname, $user, $password, $database)));
+    var_dump(inserirDados(conectar($hostname, $user, $password, $database), dadosFormulario()));
+
 ?>
