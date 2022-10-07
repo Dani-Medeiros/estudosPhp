@@ -24,7 +24,8 @@
                     E-mail:<br>
                     <input type="email" name="email" id="email" required><br>
                     Celular:<br>
-                    <input type="tel" name="celular" id="celular" pattern="^\([1-9]{2}\) (?:[2-8]|9[1-9])[0-9]{3}\-[0-9]{4}$" placeholder="(xx) xxxxx-xxxx"><br>
+                    <input type="tel" name="celular" id="celular" pattern="^\([1-9]{2}\) (?:[2-8]|9[1-9])[0-9]{3}\-[0-9]{4}$" 
+                    placeholder="(xx) xxxxx-xxxx"><br>
                     CPF:<br>
                     <input type="text" name="cpf" id="cpf" required><br>
                     Data de nascimento:<br>
@@ -34,7 +35,7 @@
                         <option name="turno" value="tarde">Tarde</option>
                         <option name="turno" value="noite">Noite</option>
                     </select><br><br>
-                    <input type="submit" value="Enviar dados">
+                    <input type="submit" value="Enviar dados" class="botao">
                 </form>
             </div>
         </section>
