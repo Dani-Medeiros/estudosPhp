@@ -1,3 +1,15 @@
+<?php
+
+session_start();
+
+$hostname = 'localhost';
+$user = 'root';
+$password = '';
+$database = 'escola_teste';
+
+include_once 'cabecalho.php';
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -11,73 +23,69 @@
 
 <body>
     <h1>Seu cadastro foi realizado com sucesso!</h1>
-    <p>Parabéns, professor! Agora você faz parte de uma escola de sucesso. Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum illo pariatur tempora, placeat nisi molestiae commodi quidem voluptates officiis doloremque possimus quae asperiores at sed numquam provident enim iste itaque!</p><hr>
+    <p>Parabéns, professor! Agora você faz parte de uma escola de sucesso. Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum illo pariatur tempora, placeat nisi molestiae commodi quidem voluptates officiis doloremque possimus quae asperiores at sed numquam provident enim iste itaque!</p>
+    <hr>
 
-    <table>
-        <?php echo tabela_professores(dadosFormulario()); ?>
-    </table>
+    <?php echo tabela_professores(lista_professores(conectar($hostname, $user, $password, $database))); ?>
 
 </body>
 
 </html>
 
-
-
 <?php
-session_start();
-
-$hostname = 'localhost';
-$user = 'root';
-$password = '';
-$database = 'escola_teste';
-
 
 function tabela_professores($dados)
 {
-    $html = "<thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Nome</th>
-                    <th>E-mail</th>
-                    <th>Celular</th>
-                    <th>CPF</th>
-                    <th>Nascimento</th>
-                    <th>Turno</th>
-                    <th>Data de Cadastro</th>
-                </tr>
-            </thead>
+    $html =
+        "<div id='div-tabela'>
+            <table id='tabela'>
+                <thead class='thead'>
+                    <tr class='titulos-thead'>
+                        <th width='20px'>ID</th>
+                        <th width='150px'>Nome</th>
+                        <th width='150px'>E-mail</th>
+                        <th width='150px'>Celular</th>
+                        <th width='150px'>CPF</th>
+                        <th width='150px'>Nascimento</th>
+                        <th width='80px'>Turno</th>
+                        <th width='150px'>Data de Cadastro</th>
+                    </tr>
+                </thead>
 
-            <tbody>
-                <tr>
-                    <td>'".$dados['nome']."'</td>
-                    <td>'".$dados['nome']."'</td>
-                    <td>'".$dados['email']."'</td>
-                    <td>'".$dados['celular']."'</td>
-                    <td>'".$dados['cpf']."'</td>
-                    <td>'".$dados['nasc']."'</td>
-                    <td>'".$dados['turno']."'</td>
-                    <td>'".$dados['cpf']."'</td>
-                </tr>
-            </tbody>";
+                <tbody class='tbody'>
+                    <tr class='resultados-tbody'>
+                        <td width='20px'>" . $dados['id'] . "</td>
+                        <td width='150px'>" . $dados['nome'] . "</td>
+                        <td width='150px'>" . $dados['email'] . "</td>
+                        <td width='150px'>" . $dados['telefone'] . "</td>
+                        <td width='150px'>" . $dados['cpf'] . "</td>
+                        <td width='150px'>" . $dados['data_nasc'] . "</td>
+                        <td width='80px'>" . $dados['turno'] . "</td>
+                        <td width='150px'>" . $dados['data_cad'] . "</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>";
 
     return $html;
 }
 
-// $query_retorna = sprintf("SELECT id, nome, email, telefone, cpf, nasc, turno, data_cad FROM professores");
-
-var_dump($query_retorna);
-
 function dadosFormulario()
 {
+    if(!empty($_POST)) {
 
-    $dados_form = array(
-        'nome' => $_POST['nome'],
-        'email' => $_POST['email'],
-        'celular' => $_POST['celular'],
-        'cpf' => $_POST['cpf'],
-        'nasc' => $_POST['nasc'],
-        'turno' => $_POST['opcoes-turno']
-    );
+        $dados_form = array(
+            'nome' => ($_POST['nome'] == '' ? '' : $_POST['nome']),
+            'email' => $_POST['email'],
+            'celular' => $_POST['celular'],
+            'cpf' => $_POST['cpf'],
+            'nasc' => $_POST['nasc'],
+            'turno' => $_POST['opcoes-turno']
+        );
+    } else {
+        $dados_form = '';
+    }
+
 
     return $dados_form;
 }
@@ -143,12 +151,11 @@ function inserir_dados($conexao, $dados)
     return $inserir;
 }
 
-if (inserir_dados(conectar($hostname, $user, $password, $database), dadosFormulario()) == false) {
+if (!inserir_dados(conectar($hostname, $user, $password, $database), dadosFormulario())) {
     echo 'Erro ao enviar os dados.';
 } else {
     return true;
 }
-
 
 // inserir_dados(conectar($hostname, $user, $password, $database), $dados);
 ?>
