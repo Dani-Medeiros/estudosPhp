@@ -30,7 +30,9 @@ include_once 'cabecalho.php';
     <p>Parabéns, aluno! Agora você faz parte de uma escola de sucesso. Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum illo pariatur tempora, placeat nisi molestiae commodi quidem voluptates officiis doloremque possimus quae asperiores at sed numquam provident enim iste itaque!</p>
     <hr>
 
-    <?php tabela_alunos(lista_alunos(conectar($dados_conexao))); ?>
+    <?php 
+        tabela_alunos(lista_alunos(conectar($dados_conexao))); 
+    ?>
 
 </body>
 
@@ -38,12 +40,11 @@ include_once 'cabecalho.php';
 
 <?php
 
-
+// var_dump(lista_alunos(conectar($dados_conexao)));
 
 function tabela_alunos($dados)
 {
-    echo
-        "<div id='div-tabela'>
+    $html = "<div id='div-tabela'>
             <table id='tabela'>
                 <thead class='thead'>
                     <tr class='titulos-thead'>
@@ -62,29 +63,29 @@ function tabela_alunos($dados)
                 <tbody class='tbody'>
                     ";foreach ($dados as $key => $value) {
                         echo "<tr class='resultados-tbody'>
-                        <td width='20px'>" . $value[$key]['id'] . "</td>
-                        <td width='150px'>" . $value[$key]['nome'] . "</td>
-                        <td width='150px'>" . $value[$key]['email'] . "</td>
-                        <td width='150px'>" . $value[$key]['telefone'] . "</td>
-                        <td width='150px'>" . $value[$key]['data_nasc'] . "</td>
-                        <td width='150px'>" . $value[$key]['matricula'] . "</td>
-                        <td width='80px'>" . $value[$key]['turma'] . "</td>
-                        <td width='80px'>" . $value[$key]['turno'] . "</td>
-                        <td width='150px'>" . $value[$key]['data_cad'] . "</td>
+                        <td width='20px'>".$value['id']."</td>
+                        <td width='150px'>".$value['nome']."</td>
+                        <td width='150px'>".$value['matricula']."</td>
+                        <td width='150px'>".$value['data_nasc']."</td>
+                        <td width='150px'>".$value['turma']."</td>
+                        <td width='150px'>".$value['turno']."</td>
+                        <td width='80px'>".$value['telefone']."</td>
+                        <td width='80px'>".$value['email']."</td>
+                        <td width='150px'>".$value['data_cad']."</td>
                     </tr>";
                     } echo"
                 </tbody>
             </table>
         </div>";
 
-    // return $html;
+    return $html;
 }
 
 function dadosFormulario()
 {
 
     $dados_form = array(
-        'nome' => $_POST['nome'],
+        'nome' => (empty($_POST['nome']) ? '' : $_POST['nome']),
         'email' => $_POST['email'],
         'celular' => $_POST['celular'],
         'nasc' => $_POST['nasc'],
@@ -124,7 +125,7 @@ function lista_alunos($conectar)
     $resultado = mysqli_query($conectar[0],'SELECT * FROM alunos');
 
     if ($resultado) {
-        $dados = mysqli_fetch_all($resultado);
+        $dados = $resultado->fetch_all(MYSQLI_ASSOC);
         
     } else {
         echo 'Erro ao executar a busca.';
@@ -158,7 +159,6 @@ if (!inserirDados(conectar($dados_conexao), dadosFormulario())) {
 }
 
 // var_dump(conectar($dados_conexao));
-var_dump(lista_alunos(conectar($dados_conexao)));
 // var_dump(inserirDados(conectar($dados_conexao, dadosFormulario()));
 
 ?>
