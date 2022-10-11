@@ -16,7 +16,7 @@
     <main>
         <section class="section-cad_professor">
             <div class="div-cad_professor">
-                <form action="db_professores.php" method="post" class="form-cad_professor">
+                <form action="prof_cadastrado.php" method="post" class="form-cad_professor">
                     <p>Cadastro Professor</p>
                     <hr><br>
                     Nome:<br>

@@ -47,14 +47,21 @@ a {
 .form-cad_aluno, .form-cad_professor {
     width: 400px;
     justify-content: center;
-    
 }
 
 #div-tabela, #tabela {
-    padding-top: 30px;
     width: 100%;
     display: flex;
     flex-direction: column;
-    text-align: center;
-    align-items: center;
+}
+
+#thead {
+    padding-top: 50px;
+    text-align: left;
+    font-weight: 500;
+}
+
+#tbody {
+    padding-top: 10px;
+    text-align: left;
 }

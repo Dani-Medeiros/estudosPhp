@@ -12,6 +12,7 @@ $dados_conexao = array(
 );
 
 include_once 'cabecalho.php';
+
 ?>
 
 <!DOCTYPE html>
@@ -30,66 +31,65 @@ include_once 'cabecalho.php';
     <p>Parabéns, aluno! Agora você faz parte de uma escola de sucesso. Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum illo pariatur tempora, placeat nisi molestiae commodi quidem voluptates officiis doloremque possimus quae asperiores at sed numquam provident enim iste itaque!</p>
     <hr>
 
-    <?php 
-        tabela_alunos(lista_alunos(conectar($dados_conexao))); 
+    <div id='div-tabela'>
+        <table id='tabela'>
+            <thead id='thead'>
+                <tr class='titulos-thead'>
+                    <th width='50px'>ID</th>
+                    <th width='180px'>Nome</th>
+                    <th width='260px'>E-mail</th>
+                    <th width='180px'>Celular</th>
+                    <th width='150px'>Nascimento</th>
+                    <th width='120px'>Matricula</th>
+                    <th width='100px'>Turma</th>
+                    <th width='120px'>Turno</th>
+                    <th width='160px'>Data de Cadastro</th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+
+    <?php
+       echo tabela_alunos(lista_alunos(conectar($dados_conexao)));
     ?>
 
 </body>
-
 </html>
 
 <?php
 
-// var_dump(lista_alunos(conectar($dados_conexao)));
-
 function tabela_alunos($dados)
 {
-    $html = "<div id='div-tabela'>
-            <table id='tabela'>
-                <thead class='thead'>
-                    <tr class='titulos-thead'>
-                        <th width='20px'>ID</th>
-                        <th width='150px'>Nome</th>
-                        <th width='150px'>E-mail</th>
-                        <th width='150px'>Celular</th>
-                        <th width='150px'>Nascimento</th>
-                        <th width='150px'>Matricula</th>
-                        <th width='80px'>Turma</th>
-                        <th width='80px'>Turno</th>
-                        <th width='150px'>Data de Cadastro</th>
-                    </tr>
-                </thead>
-
-                <tbody class='tbody'>
-                    ";foreach ($dados as $key => $value) {
-                        echo "<tr class='resultados-tbody'>
-                        <td width='20px'>".$value['id']."</td>
-                        <td width='150px'>".$value['nome']."</td>
-                        <td width='150px'>".$value['matricula']."</td>
-                        <td width='150px'>".$value['data_nasc']."</td>
-                        <td width='150px'>".$value['turma']."</td>
-                        <td width='150px'>".$value['turno']."</td>
-                        <td width='80px'>".$value['telefone']."</td>
-                        <td width='80px'>".$value['email']."</td>
-                        <td width='150px'>".$value['data_cad']."</td>
-                    </tr>";
-                    } echo"
-                </tbody>
-            </table>
-        </div>";
-
-    return $html;
+    foreach ($dados as $key => $value) {
+          echo  "<div id='div-tabela'>
+                    <table id='tabela'>   
+                        <tbody id='tbody'>
+                            <tr class='resultados-tbody'><br>
+                                <td width='50px'>" . $value[0] . "</td>
+                                <td width='180px'>" . $value[1] . "</td>
+                                <td width='260px'>" . $value[2] . "</td>
+                                <td width='180px'>" . $value[3] . "</td>
+                                <td width='150px'>" . $value[4] . "</td>
+                                <td width='120px'>" . $value[5] . "</td>
+                                <td width='100px'>" . $value[6] . "</td>
+                                <td width='120px'>" . $value[7] . "</td>
+                                <td width='160px'>" . $value[8] . "</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>";
+    };
 }
 
 function dadosFormulario()
 {
-
     $dados_form = array(
         'nome' => (empty($_POST['nome']) ? '' : $_POST['nome']),
-        'email' => $_POST['email'],
-        'celular' => $_POST['celular'],
-        'nasc' => $_POST['nasc'],
-        'turno' => $_POST['turno']
+        'email' => (empty($_POST['email']) ? '' : $_POST['email']),
+        'celular' => (empty($_POST['celular']) ? '' : $_POST['celular']),
+        'cpf' => (empty($_POST['nasc']) ? '' : $_POST['cpf']),
+        'nasc' => (empty($_POST['nasc']) ? '' : $_POST['nasc']),
+        'turno' => (empty($_POST['turno']) ? '' : $_POST['turno'])
     );
 
     return $dados_form;
@@ -122,11 +122,10 @@ function conectar($dados_conexao)
 
 function lista_alunos($conectar)
 {
-    $resultado = mysqli_query($conectar[0],'SELECT * FROM alunos');
+    $resultado = mysqli_query($conectar[0], 'SELECT * FROM alunos');
 
     if ($resultado) {
-        $dados = $resultado->fetch_all(MYSQLI_ASSOC);
-        
+        $dados = $resultado->fetch_all(MYSQLI_NUM);
     } else {
         echo 'Erro ao executar a busca.';
     }
@@ -136,29 +135,25 @@ function lista_alunos($conectar)
 
 function inserirDados($conexao, $dados)
 {
-    $inserir = mysqli_query(
-        $conexao[0],
-        'INSERT INTO alunos (
+    $inserir = mysqli_query($conexao[0],
+        "INSERT INTO alunos (
                 nome, email, telefone, data_nasc, turno) 
             VALUES (
-                "' . $dados['nome'] . '",
-                "' . $dados['email'] . '",
-                "' . $dados['celular'] . '", 
-                "' . $dados['nasc'] . '", 
-                "' . $dados['turno'] . '"
-            )'
+                '". $dados['nome'] ."',
+                '". $dados['email'] ."',
+                '". $dados['celular'] ."', 
+                '". $dados['nasc'] ."', 
+                '". $dados['turno'] ."'
+            )"
     );
 
     return $inserir;
 }
 
 if (!inserirDados(conectar($dados_conexao), dadosFormulario())) {
-    echo 'Erro ao enviar os dados.';
+    echo '<br><p>Erro ao enviar os dados.</p>';
 } else {
     return true;
 }
-
-// var_dump(conectar($dados_conexao));
-// var_dump(inserirDados(conectar($dados_conexao, dadosFormulario()));
 
 ?>
