@@ -4,6 +4,9 @@ html {
     color:darkslategray;
     margin-left: 100px;
     margin-right: 100px;
+    line-height: 1,5px;
+    font-weight: 500;
+    font-size: 16px;
 }
 
 
@@ -12,18 +15,13 @@ html {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    font-size: large;
     text-align: center;
 }
 
 .principal-home, .sobre {
     padding-top: 50px;
 }
-
-/* .cadastro {
-    width: 500px;
-    text-align: start;
-    align-items: center;
-} */
 
 a {
     text-decoration: none;
@@ -39,14 +37,31 @@ a {
 }
 
 .div-cad_aluno, .div-cad_professor {
-    justify-content: center;
     padding-top: 50px;
+    justify-content: center;
     align-items: center;
+    text-align: center;
 }
 
 .form-cad_aluno, .form-cad_professor {
-    width: 400px;
-    justify-content: center;
+    width: 300px;
+    text-align: left;
+    background-color: rgb(211, 147, 166);
+    border-radius: 25px;
+    padding: 25px;
+}
+
+input, select {
+    border-color: rgb(165, 42, 79);
+    color: darkslategray;
+    border-radius: 5px;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+.botao {
+    background-color:rgb(211, 147, 166);
+    margin-right: 15px;
 }
 
 #div-tabela, #tabela {

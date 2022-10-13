@@ -68,6 +68,6 @@
     if (!inserir_dados(conectar($dados_conexao), dadosFormulario())) {
         echo '<br><p>Erro ao enviar os dados.</p>';
     } else {
-        return true;
+        header('Location:prof_cadastrado.php');
     }
 ?>

@@ -44,7 +44,7 @@
                 </table>
             </div>
             <a href="cad_professor.php"><input type="submit" value="Cadastrar novo" class="botao"></a>
-            <a href="lista_professores.php"><input type="submit" value="Lista cadastrados" class="botao"></a>
+            <a href="lista_professores.php"><input value="Lista cadastrados" class="botao"></a>
     </body>
     </html>
 

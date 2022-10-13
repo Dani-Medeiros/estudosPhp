@@ -14,28 +14,30 @@
     require_once 'cabecalho.php';
     ?>
     <main>
-        <section class="section-cad_professor">
+
             <div class="div-cad_professor">
-                <form action="prof_cadastrado.php" method="post" class="form-cad_professor">
-                    <p>Cadastro Professor</p>
+                <form action="db_professores.php" method="post" class="form-cad_professor">
+                    <h2>Cadastro Professor</h2>
                     <hr><br>
-                    Nome:<br>
+                    Nome<br>
                     <input type="text" name="nome" id="nome" required><br>
-                    E-mail:<br>
+                    E-mail<br>
                     <input type="email" name="email" id="email" required><br>
-                    Celular:<br>
+                    Celular<br>
                     <input type="tel" name="celular" id="celular" pattern="^\([1-9]{2}\) (?:[2-8]|9[1-9])[0-9]{3}\-[0-9]{4}$" 
                     placeholder="(xx) xxxxx-xxxx"><br>
-                    CPF:<br>
+                    CPF<br>
                     <input type="text" name="cpf" id="cpf" required><br>
-                    Data de nascimento:<br>
-                    <input type="date" name="nasc" id="nasc"><br><br>
+                    Data de nascimento<br>
+                    <input type="date" name="nasc" id="nasc"><br>
+                    Selecione o turno<br>
                     <select name="opcoes-turno" id="opcoes-turno">
                         <option name="turno" value="manha">Manhã</option>
                         <option name="turno" value="tarde">Tarde</option>
                         <option name="turno" value="noite">Noite</option>
                     </select><br><br>
                     <input type="submit" value="Enviar dados" class="botao">
+                    <a href="lista_professores.php"><input type="button" value="Lista cadastrados" class="botao"></a>
                 </form>
             </div>
         </section>
