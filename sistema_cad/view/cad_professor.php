@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./assets/style.css">
+    <link rel="stylesheet" href="../assets/style.css">
     <title>Cadastro - Professor</title>
 </head>
 
@@ -16,7 +16,7 @@
     <main>
 
             <div class="div-cad_professor">
-                <form action="db_professores.php" method="post" class="form-cad_professor">
+                <form action="../model/db_professores.php" method="POST" class="form-cad_professor">
                     <h2>Cadastro Professor</h2>
                     <hr><br>
                     Nome<br>

@@ -1,0 +1,89 @@
+-- --------------------------------------------------------
+-- Servidor:                     127.0.0.1
+-- Versão do servidor:           5.7.21 - MySQL Community Server (GPL)
+-- OS do Servidor:               Win64
+-- HeidiSQL Versão:              12.1.0.6537
+-- --------------------------------------------------------
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET NAMES utf8 */;
+/*!50503 SET NAMES utf8mb4 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+
+-- Copiando estrutura do banco de dados para escola_teste
+CREATE DATABASE IF NOT EXISTS `escola_teste` /*!40100 DEFAULT CHARACTER SET utf8mb4 */;
+USE `escola_teste`;
+
+-- Copiando estrutura para tabela escola_teste.alunos
+CREATE TABLE IF NOT EXISTS `alunos` (
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT ' id do aluno, chave primária.',
+  `nome` varchar(50) NOT NULL DEFAULT '0' COMMENT 'nome do aluno',
+  `email` varchar(1024) DEFAULT NULL COMMENT 'e-mail do aluno',
+  `telefone` varchar(1024) DEFAULT NULL COMMENT 'telefone do aluno',
+  `data_nasc` date DEFAULT NULL COMMENT 'data de nascimento do aluno',
+  `matricula` int(10) DEFAULT NULL COMMENT 'matricula do aluno',
+  `turma` varchar(10) DEFAULT NULL COMMENT 'turma do aluno',
+  `turno` varchar(10) DEFAULT NULL COMMENT 'exemplo: manhã, tarde, noite.',
+  `data_cad` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'data de cadastro do aluno',
+  `data_exc` datetime DEFAULT NULL COMMENT 'data de exclusão do aluno',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=utf8mb4 COMMENT='cadastro de alunos no sistema';
+
+-- Copiando dados para a tabela escola_teste.alunos: ~10 rows (aproximadamente)
+INSERT INTO `alunos` (`id`, `nome`, `email`, `telefone`, `data_nasc`, `matricula`, `turma`, `turno`, `data_cad`, `data_exc`) VALUES
+	(1, 'Dani', 'asdf@fghj.com', '21971517568', '1995-08-28', 457, '509', 'manha', '2022-10-06 17:54:08', NULL),
+	(4, 'Dylan2', 'dylanmedeirosdev@gmail.com', '21974735803', '2017-09-20', NULL, NULL, 'manha', '2022-10-07 11:59:43', NULL),
+	(6, 'Teste', 'usuario@teste.com.br', '21999999999', '2000-01-28', NULL, NULL, 'tarde', '2022-10-07 12:13:07', NULL),
+	(7, 'Daniele', 'danielemedeiros9@gmail.com', '(21) 97473-5803', '1995-08-28', NULL, NULL, 'noite', '2022-10-10 15:05:50', NULL),
+	(8, 'Daniele', 'danielemedeiros9@gmail.com', '(21) 97473-5803', '1995-08-28', NULL, NULL, 'noite', '2022-10-10 15:15:11', NULL),
+	(25, 'asdsf', 'asdas@asda.br', '21999988888', '2000-10-21', NULL, NULL, 'noite', '2022-10-10 16:19:52', NULL),
+	(26, 'asdsf', 'asdas@asda.br', '21999988888', '2000-10-21', NULL, NULL, 'noite', '2022-10-10 16:20:07', NULL),
+	(27, 'asdsf', 'asdas@asda.br', '21999988888', '2000-10-21', NULL, NULL, 'noite', '2022-10-10 16:48:26', NULL),
+	(28, 'aaaaaa', 'foi@all.com', '3198879-6589', '2000-10-04', NULL, NULL, 'noite', '2022-10-10 16:49:18', NULL),
+	(32, 'bbbb', 'bbb@aaa.ccc', '2134566789', '1990-08-10', NULL, NULL, 'manha', '2022-10-10 18:04:44', NULL),
+	(33, 'Fernando', 'fernando@gmail.com', '2158741679794', '1995-06-14', NULL, NULL, 'tarde', '2022-10-13 17:08:48', NULL);
+
+-- Copiando estrutura para tabela escola_teste.professores
+CREATE TABLE IF NOT EXISTS `professores` (
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'id do professor',
+  `nome` varchar(50) NOT NULL DEFAULT '0' COMMENT 'nome do professor',
+  `email` varchar(1024) DEFAULT '0' COMMENT 'e-mail do professor',
+  `telefone` varchar(1024) DEFAULT NULL COMMENT 'telefone do professor',
+  `cpf` varchar(30) NOT NULL DEFAULT '0' COMMENT 'cpf do professor',
+  `data_nasc` date DEFAULT NULL COMMENT 'data de nascimento do professor',
+  `turno` varchar(10) NOT NULL DEFAULT '0' COMMENT 'exemplo: manhã, tarde, noite.',
+  `data_cad` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'data de cadastro do professor',
+  `data_exc` timestamp NULL DEFAULT NULL COMMENT 'data de exclusão do cadastro do professor',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=270 DEFAULT CHARSET=utf8mb4;
+
+-- Copiando dados para a tabela escola_teste.professores: ~13 rows (aproximadamente)
+INSERT INTO `professores` (`id`, `nome`, `email`, `telefone`, `cpf`, `data_nasc`, `turno`, `data_cad`, `data_exc`) VALUES
+	(3, 'Teste', 'usuario@teste.com.br', '21974735803', '12345678921', '2000-01-01', 'tarde', '2022-10-07 18:34:24', NULL),
+	(4, 'Daniele', 'danielemedeiros9@gmail.com', '00000000000', '78945612321', '1950-01-01', 'noite', '2022-10-07 19:27:37', NULL),
+	(18, 'Joaquim', 'joaquim@gmail.com', '21911122233', '45612378921', '1994-05-05', 'manha', '2022-10-10 11:29:55', NULL),
+	(235, 'Daniele Medeiros', 'danielemedeiros9@gmail.com', '(21) 97473-5803', '1215641230154', '1950-02-01', 'noite', '2022-10-10 17:33:01', NULL),
+	(242, 'Fessor', 'fessor@escola.com', '21345678900', '45632178956', '1986-06-12', 'noite', '2022-10-11 15:37:30', NULL),
+	(246, 'Laura', 'laurinha@gmail.com', '31955554444', '01472856963', '2007-05-15', 'manha', '2022-10-11 18:55:32', NULL),
+	(253, 'Gisele', 'gisele@gmail.com', '21977753444', '74561234789', '2001-05-03', 'tarde', '2022-10-11 19:03:45', NULL),
+	(260, 'teste', 'teste@gmail.com', '21955554444', '12345698723', '1998-06-25', 'manha', '2022-10-13 14:17:15', NULL),
+	(261, 'teste', 'teste@gmail.com', '21955554444', '12345698723', '1998-06-25', 'manha', '2022-10-13 14:57:05', NULL),
+	(262, 'Benjamin', 'benjamin@gmail.com', '21345678900', '5485120649', '2005-09-28', 'tarde', '2022-10-13 14:59:54', NULL),
+	(263, 'olÃ¡', 'ola@gmail.com', '21888884444', '32145698721', NULL, 'manha', '2022-10-18 15:36:45', NULL),
+	(264, 'olÃ¡', 'ola@gmail.com', '21888884444', '32145698721', '1970-06-25', 'manha', '2022-10-18 15:42:21', NULL),
+	(265, 'Nome', 'nome@teste.com', '2199998888', '12345678911', '1996-03-28', 'tarde', '2022-10-18 18:06:40', NULL),
+	(266, 'Nome', 'nome@teste.com', '2199998888', '12345678911', '1996-03-28', 'tarde', '2022-10-18 18:09:44', NULL),
+	(267, 'Teste', 'usuario@teste.com.br', '', '12345678978', NULL, 'manha', '2022-10-18 20:43:41', NULL),
+	(268, 'Teste', 'usuario@teste.com.br', '', '12345678978', NULL, 'manha', '2022-10-18 20:46:19', NULL),
+	(269, 'Teste', 'usuario@teste.com.br', '', '12345678978', NULL, 'manha', '2022-10-18 20:49:19', NULL);
+
+/*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
+/*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
+/*!40014 SET FOREIGN_KEY_CHECKS=IFNULL(@OLD_FOREIGN_KEY_CHECKS, 1) */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40111 SET SQL_NOTES=IFNULL(@OLD_SQL_NOTES, 1) */;

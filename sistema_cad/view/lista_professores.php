@@ -1,13 +1,9 @@
 <?php
-    session_start();
+   require_once '../controller/professor.php';
 
-    $dados_conexao = array(
-        'hostname' => 'localhost',
-        'user' => 'root',
-        'password' => '',
-        'database' => 'escola_teste',
-        'table' => 'professores'
-    );
+   $conn = new Connect;
+
+   $dados = $conn->dados_conexao('professores');
 ?>
 
 <!DOCTYPE html>
@@ -17,7 +13,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./assets/style.css">
+    <link rel="stylesheet" href="../assets/style.css">
     <title>Lista de professores</title>
 </head>
 <?php 
@@ -42,7 +38,7 @@
                     </thead>
                     <tbody id='tbody'>
                     <?php
-                        tabela_professores(lista_professores(conectar($dados_conexao))); 
+                       tabela_professores(lista_professores($dados));
                     ?>
                     </tbody>
                 </table>
@@ -53,7 +49,7 @@
 
 <?php
 
-    function tabela_professores($dados)
+    /* function tabela_professores($dados)
     {
         foreach ($dados as $key => $value) {
 
@@ -69,9 +65,9 @@
                     <td width='160px'>" . $value[7] . "</td>
                 </tr>";
         }
-    }
+    } */
 
-    function lista_professores($conectar)
+    /* function lista_professores($conectar)
     {
         $resultado = mysqli_query($conectar[0],'SELECT * FROM professores');
 
@@ -82,9 +78,9 @@
         }
 
         return $result;
-    }
+    } */
 
-    function conectar($dados_conexao)
+/*     function conectar($dados_conexao)
     {
         $conexao = mysqli_connect($dados_conexao['hostname'], $dados_conexao['user'], $dados_conexao['password'], $dados_conexao['database']);
 
@@ -106,5 +102,5 @@
         }
 
         return $conectou;
-    }
+    } */
 ?>

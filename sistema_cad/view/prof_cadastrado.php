@@ -1,12 +1,9 @@
 <?php
+    require_once '../controller/professor.php';
 
-    $dados_conexao = array(
-        'hostname' => 'localhost',
-        'user' => 'root',
-        'password' => '',
-        'database' => 'escola_teste',
-        'table' => 'professores'
-    );
+    $conn = new Connect;
+    
+    $dados = $conn->dados_conexao('professores');
 ?>
 
 <!DOCTYPE html>
@@ -15,7 +12,7 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="./assets/style.css">
+        <link rel="stylesheet" href="../assets/style.css">
         <title>Cadastro realizado</title>
         <?php include_once 'cabecalho.php'; ?>
     </head>
@@ -38,19 +35,19 @@
                     </thead>
                     <tbody id='tbody'>
                         <?php
-                            ultimo_cad(professor(conectar($dados_conexao)));
+                            ultimo_cad(professor($conn->conectar($dados)));
                         ?>
                     </tbody>
                 </table>
             </div>
-            <a href="cad_professor.php"><input type="submit" value="Cadastrar novo" class="botao"></a>
-            <a href="lista_professores.php"><input value="Lista cadastrados" class="botao"></a>
+            <a href="./cad_professor.php"><input type="submit" value="Cadastrar novo" class="botao"></a>
+            <a href="./lista_professores.php"><input type="button" value="Lista cadastrados" class="botao"></a>
     </body>
     </html>
 
     <?php 
 
-        function ultimo_cad($dados)
+        /* function ultimo_cad($dados)
         {
             echo "<tr class='resultados-tbody'>
                 <td width='50px'>" . $dados['id'] . "</td>
@@ -76,9 +73,9 @@
             }
 
             return $result;
-        }
+        } */
 
-        function conectar($dados_conexao)
+        /* function conectar($dados_conexao)
         {
             $conexao = mysqli_connect($dados_conexao['hostname'], $dados_conexao['user'], $dados_conexao['password'], $dados_conexao['database']);
     
@@ -100,6 +97,6 @@
             }
     
             return $conectou;
-        }
+        } */
 
     ?>
