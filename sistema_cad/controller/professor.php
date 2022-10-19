@@ -1,8 +1,24 @@
 <?php
 
-    require_once '../model/db_professores.php';
+    require '../model/db_professores.php';
 
-    function ultimo_cad($dados)
+    $model = new Db_professores;
+
+    function dados_formulario()
+    {
+        $dados_form = array(
+            'nome' => (empty($_POST['nome']) ? '' : $_POST['nome']),
+            'email' => (empty($_POST['email']) ? '' : $_POST['email']),
+            'celular' => (empty($_POST['celular']) ? NULL : $_POST['celular']),
+            'cpf' => (empty($_POST['cpf']) ? '' : $_POST['cpf']),
+            'nasc' => (empty($_POST['nasc']) ? NULL : $_POST['nasc']),
+            'opcoes-turno' => (empty($_POST['opcoes-turno']) ? '' : $_POST['opcoes-turno'])
+        );
+
+        return $dados_form;
+    }
+
+    function ultimo_cad_prof($dados)
     {
         echo "<tr id='result_tbody'>
                 <td width='50px'>".$dados['id']."</td>
@@ -32,11 +48,11 @@
         }
     }
 
-    function listagem_geral()
-    {
-        $lista = lista_professores();
+   // var_dump($model->inserir_dados(dados_formulario()));
 
-        return $lista;
+    if(!$model->inserir_dados(dados_formulario())){
+        die("Erro ao enviar dados");
+    } else {
+        header('Location:../view/prof_cadastrado.php');
     }
-
 ?>

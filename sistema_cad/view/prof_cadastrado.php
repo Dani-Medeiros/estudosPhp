@@ -1,11 +1,3 @@
-<?php
-    require_once '../controller/professor.php';
-
-    $conn = new Connect;
-    
-    $dados = $conn->dados_conexao('professores');
-?>
-
 <!DOCTYPE html>
     <html lang="pt-br">
     <head>
@@ -35,7 +27,9 @@
                     </thead>
                     <tbody id='tbody'>
                         <?php
-                            ultimo_cad(professor($conn->conectar($dados)));
+
+                            include '../controller/professor.php';
+                            var_dump(ultimo_cad_prof(dados_formulario()));
                         ?>
                     </tbody>
                 </table>
@@ -43,60 +37,4 @@
             <a href="./cad_professor.php"><input type="submit" value="Cadastrar novo" class="botao"></a>
             <a href="./lista_professores.php"><input type="button" value="Lista cadastrados" class="botao"></a>
     </body>
-    </html>
-
-    <?php 
-
-        /* function ultimo_cad($dados)
-        {
-            echo "<tr class='resultados-tbody'>
-                <td width='50px'>" . $dados['id'] . "</td>
-                <td width='180px'>" . $dados['nome'] . "</td>
-                <td width='260px'>" . $dados['email'] . "</td>
-                <td width='180px'>" . $dados['telefone'] . "</td>
-                <td width='200px'>" . $dados['cpf'] . "</td>
-                <td width='120px'>" . $dados['data_nasc'] . "</td>
-                <td width='120px'>" . $dados['turno'] . "</td>
-                <td width='160px'>" . $dados['data_cad'] . "</td>
-            </tr>";
-
-        }
-
-        function professor($conectar)
-        {
-            $resultado = mysqli_query($conectar[0],'SELECT * FROM professores WHERE id = (SELECT MAX(id) FROM professores)');
-
-            if ($resultado) {
-                $result = $resultado->fetch_assoc();
-            } else {
-                echo 'Erro ao executar a busca.';
-            }
-
-            return $result;
-        } */
-
-        /* function conectar($dados_conexao)
-        {
-            $conexao = mysqli_connect($dados_conexao['hostname'], $dados_conexao['user'], $dados_conexao['password'], $dados_conexao['database']);
-    
-            if (!$conexao) {
-                die(trigger_error('Não foi possível conectar ao banco de dados'));
-                return false;
-            } else {
-                $conectar = mysqli_select_db($conexao, $dados_conexao['database']);
-    
-                if (!$conectar) {
-                    die(trigger_error('Não foi possível conectar ao banco de dados'));
-                    return false;
-                } else {
-                    $conectou = array(
-                        '0' => $conexao,
-                        '1' => $conectar
-                    );
-                }
-            }
-    
-            return $conectou;
-        } */
-
-    ?>
+</html>

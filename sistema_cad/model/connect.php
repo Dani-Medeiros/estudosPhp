@@ -1,6 +1,7 @@
 <?php
 
-    class Connect {
+    session_start();
+    Class Connect {
 
         function dados_conexao($tabela) 
         {

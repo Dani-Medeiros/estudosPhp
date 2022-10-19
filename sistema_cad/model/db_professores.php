@@ -1,48 +1,35 @@
 <?php
 
-    session_start();
+    require 'connect.php';
+    Class Db_professores extends Connect {
 
-    require_once 'connect.php';
-
-    function dadosFormulario()
+    public function inserir_dados($dados)
     {
-        $dados_form = array(
-            'nome' => (empty($_POST['nome']) ? '' : $_POST['nome']),
-            'email' => (empty($_POST['email']) ? '' : $_POST['email']),
-            'celular' => (empty($_POST['celular']) ? NULL : $_POST['celular']),
-            'cpf' => (empty($_POST['cpf']) ? '' : $_POST['cpf']),
-            'nasc' => (empty($_POST['nasc']) ? NULL : $_POST['nasc']),
-            'turno' => (empty($_POST['opcoes-turno']) ? '' : $_POST['opcoes-turno'])
-        );
-
-        return $dados_form;
-    }
-
-    function inserir_dados($dados)
-    {
-        $conn = new Connect;
-        $dados_conexao = $conn->dados_conexao('professor');
-        $connect = $conn->conectar($dados_conexao);
-
+        $connect = $this->conectar($this->dados_conexao('professores'));
         $inserir = mysqli_query($connect[0],
             "INSERT INTO professores (
-                    nome, email, telefone, cpf, data_nasc, turno)
+                    nome, 
+                    email, 
+                    telefone, 
+                    cpf, 
+                    data_nasc, 
+                    turno)
                 VALUES (
                     '".$dados['nome']."',
                     '".$dados['email']."',
                     '".$dados['celular']."',
                     '".$dados['cpf']."',
                     '".$dados['nasc']."',
-                    '".$dados['turno']."'
-                )"
+                    '".$dados['opcoes-turno']."'
+            )"
         );
 
         return $inserir;
     }
-
     
-    function professor($connect)
+    public function professor($connect)
     {
+        $connect = $this->dados_conexao('professores');
         $buscar = mysqli_query($connect[0], 'SELECT * FROM professores WHERE id = (SELECT MAX(id) FROM professores)');
 
         if ($buscar) {
@@ -50,15 +37,13 @@
         } else {
             echo 'Erro ao executar a busca!';
         }
+
         return $pegar;
     }
 
-    function lista_professores()
+    public function lista_professores()
     {
-        $conn = new Connect;
-        $dados = $conn->dados_conexao('professores');
-        $connect = $conn->conectar($dados);
-
+        $connect = $this->dados_conexao('professores');
         $lista = mysqli_query($connect[0],'SELECT * FROM professores');
 
         if ($lista) {
@@ -69,10 +54,5 @@
 
         return $result;
     }
-
-    if (!inserir_dados(dadosFormulario())) {
-        echo '<br><p>Erro ao enviar os dados.</p>';
-    } else {
-        header('Location:../view/prof_cadastrado.php');
-    }
+}
 ?>

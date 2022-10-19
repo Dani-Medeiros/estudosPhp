@@ -11,12 +11,12 @@
 
 <body>
     <?php
-    require_once 'cabecalho.php';
+        include_once 'cabecalho.php';
     ?>
     <main>
 
             <div class="div-cad_professor">
-                <form action="../model/db_professores.php" method="POST" class="form-cad_professor">
+                <form action="../controller/professor.php" method="POST" class="form-cad_professor">
                     <h2>Cadastro Professor</h2>
                     <hr><br>
                     Nome<br>

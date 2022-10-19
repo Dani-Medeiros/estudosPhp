@@ -13,7 +13,7 @@ $dados_conexao = array(
 
 include_once 'cabecalho.php';
 
-function dadosFormulario()
+function dados_formulario()
 {
     $dados_form = array(
         'nome' => (empty($_POST['nome']) ? '' : $_POST['nome']),
@@ -52,7 +52,7 @@ function conectar($dados_conexao)
     return $conn;
 }
 
-function inserirDados($conexao, $dados)
+function inserir_dados($conexao, $dados)
 {
     $inserir = mysqli_query($conexao[0],
         "INSERT INTO alunos (
@@ -69,7 +69,7 @@ function inserirDados($conexao, $dados)
     return $inserir;
 }
 
-if (!inserirDados(conectar($dados_conexao), dadosFormulario())) {
+if (!inserir_dados(conectar($dados_conexao), dados_formulario())) {
     echo '<br><p>Erro ao enviar os dados.</p>';
 } else {
     header('Location:aluno_cadastrado.php');
