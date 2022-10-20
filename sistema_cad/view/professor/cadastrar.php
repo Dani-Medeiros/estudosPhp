@@ -5,18 +5,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../assets/style.css">
+    <link rel="stylesheet" href="../../assets/style.css">
     <title>Cadastro - Professor</title>
 </head>
-
+    <?php include_once '../cabecalho.php'; ?>
 <body>
-    <?php
-        include_once 'cabecalho.php';
-    ?>
     <main>
-
+        <section>
             <div class="div-cad_professor">
-                <form action="../controller/professor.php" method="POST" class="form-cad_professor">
+                <form action="../../controller/validacao.php" method="POST" class="form-cad_professor">
                     <h2>Cadastro Professor</h2>
                     <hr><br>
                     Nome<br>
@@ -37,7 +34,7 @@
                         <option name="turno" value="noite">Noite</option>
                     </select><br><br>
                     <input type="submit" value="Enviar dados" class="botao">
-                    <a href="lista_professores.php"><input type="button" value="Lista cadastrados" class="botao"></a>
+                    <a href="lista.php"><input type="button" value="Lista cadastrados" class="botao"></a>
                 </form>
             </div>
         </section>

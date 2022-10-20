@@ -1,7 +1,3 @@
-<?php
-session_start();
-?>
-
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -9,18 +5,15 @@ session_start();
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../assets/style.css">
+    <link rel="stylesheet" href="../../assets/style.css">
     <title>Cadastro - Aluno</title>
 </head>
+<?php require_once '../cabecalho.php'; ?>
 
 <body>
-    <?php
-    require_once 'cabecalho.php';
-    ?>
-
     <main>
         <div class="div-cad_aluno">
-            <form action="db_alunos.php" method="post" class="form-cad_aluno">
+            <form action="../../controller/validacao.php" method="post" class="form-cad_aluno">
                 <h2>Cadastro Aluno</h2>
                 <hr><br>
                 Nome<br>
@@ -35,8 +28,8 @@ session_start();
                 <input type="radio" name="turno" id="turno" value="manha">manhã<br>
                 <input type="radio" name="turno" id="turno" value="tarde">tarde<br>
                 <input type="radio" name="turno" id="turno" value="noite">noite<br><br>
-                <a href="db_alunos.php"><input type="submit" value="Enviar dados" class="botao"></a>
-                <a href="lista_alunos.php"><input type="button" value="Lista cadastrados" class="botao"></a>
+                <input type="submit" value="Enviar dados" class="botao">
+                <a href="lista.php"><input type="button" value="Lista cadastrados" class="botao"></a>
             </form>
         </div>
     </main>

@@ -4,9 +4,9 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="../assets/style.css">
+        <link rel="stylesheet" href="../../assets/style.css">
         <title>Cadastro realizado</title>
-        <?php include_once 'cabecalho.php'; ?>
+        <?php include_once '../cabecalho.php'; ?>
     </head>
     <body>
     <h1>Seu cadastro foi realizado com sucesso!</h1>
@@ -27,14 +27,13 @@
                     </thead>
                     <tbody id='tbody'>
                         <?php
-
-                            include '../controller/professor.php';
-                            var_dump(ultimo_cad_prof(dados_formulario()));
+                            include_once '../../controller/professor.php';
+                            ultimo_cad_prof(professor());
                         ?>
                     </tbody>
                 </table>
             </div>
-            <a href="./cad_professor.php"><input type="submit" value="Cadastrar novo" class="botao"></a>
-            <a href="./lista_professores.php"><input type="button" value="Lista cadastrados" class="botao"></a>
+            <a href="./cadastrar.php"><input type="submit" value="Cadastrar novo" class="botao"></a>
+            <a href="./lista.php"><input type="button" value="Lista cadastrados" class="botao"></a>
     </body>
 </html>
