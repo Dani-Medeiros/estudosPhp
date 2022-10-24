@@ -25,9 +25,12 @@
                 Data de nascimento<br>
                 <input type="date" name="nasc" id="nasc" required><br>
                 <br>
-                <input type="radio" name="turno" id="turno" value="manha">manhã<br>
-                <input type="radio" name="turno" id="turno" value="tarde">tarde<br>
-                <input type="radio" name="turno" id="turno" value="noite">noite<br><br>
+                <select name="opcoes-turno" id="opcoes-turno">
+                    <option name="turno" value="">Manhã</option>
+                    <option name="turno" value="">Tarde</option>
+                    <option name="turno" value="">Noite</option>
+                </select>
+                <br>
                 <input type="submit" value="Enviar dados" class="botao">
                 <a href="lista.php"><input type="button" value="Lista cadastrados" class="botao"></a>
             </form>

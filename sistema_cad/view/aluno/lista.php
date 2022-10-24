@@ -18,7 +18,6 @@ require_once '../../controller/aluno.php';
     <h1>Seu cadastro foi realizado com sucesso!</h1>
     <p>Parabéns, aluno! Agora você faz parte de uma escola de sucesso. Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum illo pariatur tempora, placeat nisi molestiae commodi quidem voluptates officiis doloremque possimus quae asperiores at sed numquam provident enim iste itaque!</p>
     <hr>
-
     <div id='div-tabela'>
         <table id='tabela'>
             <thead id='thead'>

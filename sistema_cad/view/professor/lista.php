@@ -12,10 +12,7 @@ require_once '../../controller/professor.php';
     <link rel="stylesheet" href="../../assets/style.css">
     <title>Lista de professores</title>
 </head>
-<?php
-include_once '../cabecalho.php';
-?>
-
+<?php include_once '../cabecalho.php'; ?>
 <body>
     <h1>Lista de cadastro dos professores!</h1>
     <hr><br>
