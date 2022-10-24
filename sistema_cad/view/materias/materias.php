@@ -18,7 +18,10 @@
                 <hr><br>
                 <div>
                     <input value="Nome da matéria: " type="text" name="materia" id="nome-materia"><br>
-                    <input value="Professor: " type="text" name="professor" id="professor-materia"><br>
+                    <select name="" id="">
+                        
+                    </select>
+                   
                     <input type="submit" value="Enviar dados" class="botao">
                 </div>
             </form>

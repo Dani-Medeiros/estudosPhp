@@ -9,7 +9,7 @@
 <body>
     <header class="cabecalho">
             <div class="cadastro">
-                <p><a href="../view/login.php">Sistema de cadastros</a></p>
+                <p><a href="/estudos_php/sistema_cad/view/login.php">Sistema de cadastros</a></p>
             </div>
             <div class="lista-cabecalho">
                 <ul>

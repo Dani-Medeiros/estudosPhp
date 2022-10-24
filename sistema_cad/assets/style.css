@@ -83,3 +83,9 @@ input, select {
     padding-top: 10px;
     text-align: left;
 }
+
+#container-siscad {
+    display: flex;
+    flex-direction: row;
+    
+}
