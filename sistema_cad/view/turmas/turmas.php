@@ -22,7 +22,7 @@
                     <option name="turno" value="tarde">Tarde</option>
                     <option name="turno" value="noite">Noite</option>
                 </select>
-                <a href="#"><input type="button" value="Cadastrar" class="botao"></a>
+                <a href="/estudos_php/sistema_cad/controller/turmas.php"><input type="submit" value="Cadastrar" class="botao"></a>
             </form>
         </fieldset>
     </div>

@@ -35,7 +35,7 @@ require_once '../../controller/aluno.php';
             </thead>
             <tbody id='tbody'>
                 <?php
-                tabela_alunos(mostra_lista_aluno());
+                    tabela_alunos(mostra_lista_aluno());
                 ?>
             </tbody>
         </table>

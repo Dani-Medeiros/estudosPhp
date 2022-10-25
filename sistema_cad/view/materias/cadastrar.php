@@ -1,3 +1,4 @@
+<?php  include_once __DIR__ . '../../../controller/materias.php'; ?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -13,20 +14,21 @@
 <body>
     <div id="materias">
         <fieldset>
-            <form action="../../controller/validacao.php" method="post">
+            <form action="../../controller/validacao_materia.php" method="POST">
                 <h2>Matérias</h2>
                 <hr><br>
                 <div>
                     <input value="Nome da matéria: " type="text" name="materia" id="nome-materia"><br>
-                    <select name="" id="">
-                        
+                    <select name="professor" id="professor">
+                        <?php
+                            lista_professores();
+                        ?>
                     </select>
-                   
+                    <br>
                     <input type="submit" value="Enviar dados" class="botao">
                 </div>
             </form>
         </fieldset>
     </div>
 </body>
-
 </html>

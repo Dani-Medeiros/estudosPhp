@@ -13,7 +13,7 @@
 <body>
     <main>
         <div class="div-cad_aluno">
-            <form action="../../controller/validacao.php" method="post" class="form-cad_aluno">
+            <form action="../../controller/validacao_aluno.php" method="POST" class="form-cad_aluno">
                 <h2>Cadastro Aluno</h2>
                 <hr><br>
                 Nome<br>
