@@ -21,10 +21,9 @@
                     E-mail<br>
                     <input type="email" name="email" id="email" required><br>
                     Celular<br>
-                    <input type="tel" name="celular" id="celular" pattern="^\([1-9]{2}\) (?:[2-8]|9[1-9])[0-9]{3}\-[0-9]{4}$" 
-                    placeholder="(xx) xxxxx-xxxx"><br>
+                    <input type="tel" name="celular" id="celular" pattern="^\([1-9]{2}\) (?:[2-8]|9[1-9])[0-9]{3}\-[0-9]{4}$"><br>
                     CPF<br>
-                    <input type="text" name="cpf" id="cpf" required><br>
+                    <input type="text" name="cpf" id="cpf" required pattern="\d{3}.\d{3}.\d{3}-?\d{2}"><br>
                     Data de nascimento<br>
                     <input type="date" name="nasc" id="nasc"><br>
                     Selecione o turno<br>
@@ -33,8 +32,8 @@
                         <option name="turno" value="tarde">Tarde</option>
                         <option name="turno" value="noite">Noite</option>
                     </select><br><br>
-                    <input type="submit" value="Enviar dados" class="botao">
-                    <a href="lista.php"><input type="button" value="Lista cadastrados" class="botao"></a>
+                    <input type="submit" value="ENVIAR DADOS" class="botao">
+                    <a href="lista.php"><input type="button" value="ACESSAR LISTAGEM" class="botao"></a>
                 </form>
             </div>
         </section>

@@ -1,4 +1,4 @@
-<?php  include_once __DIR__ . '../../../controller/materias.php'; ?>
+<?php include_once __DIR__ . '../../../controller/materias.php'; ?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -18,17 +18,20 @@
                 <h2>Matérias</h2>
                 <hr><br>
                 <div>
-                    <input value="Nome da matéria: " type="text" name="materia" id="nome-materia"><br>
+                    Nome da matéria: <br>
+                    <input type="text" name="materia" id="nome-materia"><br>
+                    Professor: <br>
                     <select name="professor" id="professor">
                         <?php
-                            lista_professores();
+                        lista_professores();
                         ?>
                     </select>
                     <br>
-                    <input type="submit" value="Enviar dados" class="botao">
+                    <input type="submit" value="CADASTRAR" class="botao">
                 </div>
             </form>
         </fieldset>
     </div>
 </body>
+
 </html>

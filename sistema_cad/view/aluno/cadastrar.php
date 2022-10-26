@@ -31,8 +31,8 @@
                     <option name="turno" value="">Noite</option>
                 </select>
                 <br>
-                <input type="submit" value="Enviar dados" class="botao">
-                <a href="lista.php"><input type="button" value="Lista cadastrados" class="botao"></a>
+                <input type="submit" value="ENVIAR DADOS" class="botao">
+                <a href="lista.php"><input type="button" value="ACESSAR LISTAGEM" class="botao"></a>
             </form>
         </div>
     </main>

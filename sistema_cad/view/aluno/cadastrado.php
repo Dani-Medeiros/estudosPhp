@@ -34,8 +34,9 @@
                 ?>
             </tbody>
         </table>
+        <div>
+            <a href="cadastrar.php"><input type="submit" value="CADASTRAR NOVO" class="botao"></a>
+        </div>
     </div>
-    <a href="cadastrar.php"><input type="submit" value="Cadastrar novo" class="botao"></a>
-    <a href="lista.php"><input type="button" value="Lista cadastrados" class="botao"></a>
 </body>
 </html>

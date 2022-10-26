@@ -7,7 +7,15 @@
         public function materias ()
         {
             $connect = $this->conectar($this->dados_conexao('materias'));
-            $sql = mysqli_query($connect[0], 'SELECT * FROM materias WHERE id = (SELECT MAX(id) FROM  materias)');
+            $sql = mysqli_query(
+                $connect[0], 
+                'SELECT 
+                    materias.*, 
+                    professores.nome as nome_prof 
+                FROM materias 
+                LEFT JOIN professores ON professores.id = materias.professor 
+                WHERE materias.id = (SELECT MAX(materias.id) FROM  materias)'
+            );
 
             if ($sql) {
                 $dados = $sql->fetch_assoc();
@@ -36,7 +44,14 @@
         public function lista_materias()
         {
             $connect = $this->conectar($this->dados_conexao('materias'));
-            $sql = mysqli_query($connect[0], 'SELECT * FROM materias');
+            $sql = mysqli_query(
+                $connect[0], 
+                'SELECT 
+                    materias.*, 
+                    professores.nome as nome_prof 
+                FROM materias 
+                LEFT JOIN professores ON professores.id = materias.professor'
+            );
 
             if ($sql) {
                 $dados = $sql->fetch_all(MYSQLI_NUM);

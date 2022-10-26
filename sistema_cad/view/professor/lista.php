@@ -37,7 +37,7 @@ require_once '../../controller/professor.php';
             </tbody>
         </table>
     </div>
-    <a href="cadastrar.php"><input type="submit" value="Cadastrar novo" class="botao"></a>
+    <a href="cadastrar.php"><input type="submit" value="CADASTRAR NOVO" class="botao"></a>
 </body>
 
 </html>

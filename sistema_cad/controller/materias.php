@@ -27,18 +27,18 @@
         $lista = $conn->lista_materias();
         return $lista;
     }
-
-    function lista_professores()
-    {
-        $prof = new Db_professores;
-        return mostra_lista_prof_materia($prof->lista_professores());
-    }
     
     function mostra_lista_prof_materia($dados)
     { 
         foreach ($dados as $value) {
             echo "<option name='professor' value='".$value[0]."'>".$value[1]."</option>";
         }
+    }
+
+    function lista_professores()
+    {
+        $prof = new Db_professores;
+        return mostra_lista_prof_materia($prof->lista_professores());
     }
     
     function verifica_form_materia($dados)
@@ -50,6 +50,14 @@
         } else {
             header('Location:../view/materias/cadastrada.php');
         }
+    }
+
+    function ultimo_cad_materia($dados)
+    {
+        echo "<tr id='result_tbody'>
+                <td width='250px'>".$dados['materia']."</td>
+                <td width='300px'>".$dados['nome_prof']."</td>
+            </tr>";
     }
 
 ?>
