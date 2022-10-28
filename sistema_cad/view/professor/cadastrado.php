@@ -18,13 +18,14 @@
             <thead id='thead'>
                 <tr class='titulos-thead'>
                     <th width='50px'>ID</th>
-                    <th width='180px'>Nome</th>
-                    <th width='260px'>E-mail</th>
-                    <th width='180px'>Celular</th>
-                    <th width='200px'>CPF</th>
-                    <th width='120px'>Nascimento</th>
-                    <th width='120px'>Turno</th>
-                    <th width='160px'>Data de Cadastro</th>
+                    <th width='130px'>Nome</th>
+                    <th width='230px'>E-mail</th>
+                    <th width='140px'>Celular</th>
+                    <th width='140px'>CPF</th>
+                    <th width='100px'>Nascimento</th>
+                    <th width='100px'>Turno</th>
+                    <th width='140px'>Data de Cadastro</th>
+                    <th width='200px'>Ações</th>
                 </tr>
             </thead>
             <tbody id='tbody'>

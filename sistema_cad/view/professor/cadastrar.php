@@ -16,18 +16,19 @@
                 <form action="/estudos_php/sistema_cad/controller/validacao_professor.php" method="POST" class="form-cad_professor">
                     <h2>Cadastro Professor</h2>
                     <hr><br>
+                    <input type="hidden" name="id">
                     Nome<br>
-                    <input type="text" name="nome" id="nome" required><br>
+                    <input type="text" name="nome" id="nome" class="botao"><br>
                     E-mail<br>
-                    <input type="email" name="email" id="email" required><br>
+                    <input type="email" name="email" id="email" class="botao"><br>
                     Celular<br>
-                    <input type="tel" name="celular" id="celular" pattern="^\([1-9]{2}\) (?:[2-8]|9[1-9])[0-9]{3}\-[0-9]{4}$"><br>
+                    <input type="tel" name="celular" id="celular" class="botao"><br>
                     CPF<br>
-                    <input type="text" name="cpf" id="cpf" required pattern="\d{3}.\d{3}.\d{3}-?\d{2}"><br>
+                    <input type="text" name="cpf" id="cpf" class="botao"><br>
                     Data de nascimento<br>
-                    <input type="date" name="nasc" id="nasc"><br>
+                    <input type="date" name="nasc" id="nasc" class="botao"><br>
                     Selecione o turno<br>
-                    <select name="opcoes-turno" id="opcoes-turno">
+                    <select name="opcoes-turno" id="opcoes-turno" class="botao">
                         <option name="turno" value="manha">Manhã</option>
                         <option name="turno" value="tarde">Tarde</option>
                         <option name="turno" value="noite">Noite</option>
