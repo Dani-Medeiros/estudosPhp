@@ -20,15 +20,15 @@ require_once '../../controller/professor.php';
         <table id='tabela'>
             <thead id='thead'>
                 <tr class='titulos-thead'>
-                    <th width='50px'>ID</th>
-                    <th width='130px'>Nome</th>
-                    <th width='230px'>E-mail</th>
-                    <th width='140px'>Celular</th>
-                    <th width='140px'>CPF</th>
-                    <th width='100px'>Nascimento</th>
-                    <th width='100px'>Turno</th>
-                    <th width='140px'>Data de Cadastro</th>
-                    <th width='100'>Ações</th>
+                    <th width='50px' id="id-prof">ID</th>
+                    <th width='130px' id="nome-prof">Nome</th>
+                    <th width='230px' id="email-prof">E-mail</th>
+                    <th width='140px' id="tel-prof">Celular</th>
+                    <th width='140px' id="cpf-prof">CPF</th>
+                    <th width='100px' id="nasc-prof">Nascimento</th>
+                    <th width='100px' id="turno-prof">Turno</th>
+                    <th width='140px' id="data-cad-prof">Data de Cadastro</th>
+                    <th width='100' id="acoes-prof">Ações</th>
                 </tr>
             </thead>
             <tbody id='tbody'>
@@ -40,5 +40,16 @@ require_once '../../controller/professor.php';
     </div>
     <a href="cadastrar.php"><input type="submit" value="CADASTRAR NOVO" class="botao"></a>
 </body>
+
+<script type="text/javascript">
+
+    /** Redireciona para o formulário de edição */
+    function editar(id) {
+        if (id) {
+            window.location.href = "editar.php";
+        }
+    }
+
+</script>
 
 </html>

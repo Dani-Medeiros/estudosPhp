@@ -19,9 +19,9 @@
                 <hr><br>
                 <div>
                     Nome da matéria: <br>
-                    <input type="text" name="materia" id="nome-materia"><br>
+                    <input type="text" name="materia" id="nome-materia" class="botao"><br>
                     Professor: <br>
-                    <select name="professor" id="professor">
+                    <select name="professor" id="professor" class="botao">
                         <?php
                         lista_professores();
                         ?>

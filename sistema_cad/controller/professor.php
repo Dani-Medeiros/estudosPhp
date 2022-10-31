@@ -1,9 +1,9 @@
 <?php
     require_once __DIR__ . '/../model/db_professores.php';
 
-    $model = new Db_professores;
+    // $model = new Db_professores;
 
-    function professor()
+    function ultimo_professor()
     {
         $conn = new Db_professores;
         $selecionar = $conn->professor('professores');
@@ -13,6 +13,7 @@
     function dados_form_prof($dados)
     {
         $dados_form = array(
+            'id' => (empty($dados['id_prof']) ? '' : $dados['id_prof']),
             'nome' => (empty($dados['nome']) ? '' : $dados['nome']),
             'email' => (empty($dados['email']) ? '' : $dados['email']),
             'celular' => (empty($dados['celular']) ? NULL : $dados['celular']),
@@ -51,10 +52,12 @@
                     <td width='100px'>".$value[5]."</td>
                     <td width='100px'>".$value[6]."</td>
                     <td width='140px'>".$value[7]."</td>
-                    <td width='100px'><a onclick='editar.php'><input type='button' value='Editar'></a></td>
+                    <td width='100px'><a onclick='editar(".$value[0].")'><input type='button' value='Editar'></a></td>
                  </tr>";
         }
     }
+
+
 
     function mostra_lista_prof()
     {
@@ -76,23 +79,22 @@
     function popula_form($id)
     {
         $conn = new Db_professores;
-        $selec = $conn->seleciona_cad_prof($id);
-
-        // var_dump($selec);
+        $selec = $conn->prof_id($id);
 
         return $selec;
     }
-
-    /* function preenche_form()
-    {
-        $conn = new Db_professores;
-        return copula_form($conn->seleciona_cad_prof());
-    } */
 
     function edita_cad_prof($dados)
     {
         $conn = new Db_professores;
         $edita_cad = $conn->editar_cad_prof($dados);
+
+        if($edita_cad) {
+            header('Location:../view/professor/lista.php');
+        } else {
+            echo "Erro ao editar formulário";
+        }
+
         return $edita_cad;
     }
 

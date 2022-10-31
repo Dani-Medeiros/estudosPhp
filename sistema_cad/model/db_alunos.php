@@ -1,7 +1,6 @@
 <?php
 
     require_once 'connect.php';
-
     class Db_alunos extends Connect
     {
         public function aluno()
@@ -16,6 +15,20 @@
             }
     
             return $dados;
+        }
+
+        public function aluno_id($id)
+        {
+            $connect = $this->conectar($this->dados_conexao('alunos'));
+            $seleciona = mysqli_query($connect[0], "SELECT * FROM alunos WHERE id = '.$id.'");
+
+            if($seleciona) {
+                $pega_id = $seleciona->fetch_assoc();
+            } else {
+                die ('Não foi possível selecionar id');
+            }
+
+            return $pega_id;
         }
     
         public function inserir_dados_aluno($dados)
@@ -51,6 +64,34 @@
                 echo 'Erro ao executar a busca!';
             }
             return $dados;
-        }   
+        }
+
+        function editar_cad_aluno($dados)
+        {
+            $connect = $this->conectar($this->dados_conexao('alunos'));
+            $edita_cad = mysqli_query($connect[0], 
+            "UPDATE 
+                alunos
+             SET 
+                nome = '".$dados['nome']."',
+                email = '".$dados['email']."',
+                telefone = '".$dados['celular']."',
+                data_nasc = '".$dados['nasc']."',
+                matricula = '".$dados['matricula']."',
+                turma = '".$dados['turma']."',
+                turno = '".$dados['opcoes-turno']."'
+            WHERE
+                id = '".$dados['id']."'
+            ");
+
+            if($edita_cad) {
+                echo "Ok";
+            } else {
+                echo "Erro mysql";
+            }
+
+            return $edita_cad;
+        }
+        
     }
 ?>

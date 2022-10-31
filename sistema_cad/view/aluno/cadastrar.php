@@ -17,15 +17,15 @@
                 <h2>Cadastro Aluno</h2>
                 <hr><br>
                 Nome<br>
-                <input type="text" name="nome" id="nome" required><br>
+                <input type="text" name="nome" id="nome" class="botao"><br>
                 E-mail<br>
-                <input type="email" name="email" id="email" required><br>
+                <input type="email" name="email" id="email" class="botao"><br>
                 Celular<br>
-                <input type="number" name="celular" id="celular" pattern="^\([1-9]{2}\) (?:[2-8]|9[1-9])[0-9]{3}\-[0-9]{4}$" placeholder="(xx) xxxxx-xxxx"><br>
+                <input type="number" name="celular" id="celular" class="botao"><br>
                 Data de nascimento<br>
-                <input type="date" name="nasc" id="nasc" required><br>
+                <input type="date" name="nasc" id="nasc" class="botao"><br>
                 <br>
-                <select name="opcoes-turno" id="opcoes-turno">
+                <select name="opcoes-turno" id="opcoes-turno" class="botao">
                     <option name="turno" value="">Manhã</option>
                     <option name="turno" value="">Tarde</option>
                     <option name="turno" value="">Noite</option>

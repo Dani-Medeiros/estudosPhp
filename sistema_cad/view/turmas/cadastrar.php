@@ -19,15 +19,15 @@
                 <h2>Turmas</h2>
                 <hr><br>
                 Turma: <br>
-                <input type="text" name="turma" id="turma">
+                <input type="text" name="turma" id="turma" class="botao">
                 Turno: <br>
-                <select name="turno" id="">
+                <select name="turno" id="opcoes-turno" class="botao">
                     <option name="turno" value="manha">Manhã</option>
                     <option name="turno" value="tarde">Tarde</option>
                     <option name="turno" value="noite">Noite</option>
                 </select>
                 Matéria: <br>
-                <select name="nome_materia" id="materia">
+                <select name="nome_materia" id="materia" class="botao">
                     <?php lista_materias(); ?>
                 </select>
                 <a href="/estudos_php/sistema_cad/controller/turmas.php"><input type="submit" value="CADASTRAR" class="botao"></a>

@@ -17,7 +17,7 @@
             return $pegar;
         }
 
-        public function seleciona_cad_prof($id)
+        public function prof_id($id)
         {
             $connect = $this->conectar($this->dados_conexao('professores'));
             $seleciona = mysqli_query($connect[0], 'SELECT * FROM professores WHERE id = '.$id.'');
@@ -30,8 +30,6 @@
 
             return $pega_id;
         }
-
-        
     
         public function inserir_dados_prof($dados)
         {
@@ -73,11 +71,10 @@
 
         public function editar_cad_prof($dados)
         {
-            $connect = new Db_professores;
+            $connect = $this->conectar($this->dados_conexao('professores'));
             $edita_cad = mysqli_query($connect[0], 
             "UPDATE professores 
             SET
-                id = '".$dados['id']."',
                 nome = '".$dados['nome']."',
                 email = '".$dados['email']."',
                 telefone = '".$dados['celular']."',
@@ -86,6 +83,12 @@
                 turno = '".$dados['opcoes-turno']."'
             WHERE 
                 id = '".$dados['id']."'");
+
+            if ($edita_cad) {
+                echo 'ok';
+            } else {
+                echo 'erro mysql';
+            }
 
             return $edita_cad;
         }

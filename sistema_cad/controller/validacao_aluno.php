@@ -2,6 +2,15 @@
 
     require_once 'aluno.php';
 
-    verifica_form_aluno($_POST);
+    if ($_POST['acao'] == 'editar') {
+
+        edita_cad_aluno($_POST);
+
+    } else {
+
+        verifica_form_aluno($_POST);
+        
+    }
+
 
 ?>

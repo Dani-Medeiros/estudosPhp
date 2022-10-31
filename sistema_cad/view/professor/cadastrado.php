@@ -31,12 +31,12 @@
             <tbody id='tbody'>
                 <?php
                 include_once '../../controller/professor.php';
-                ultimo_cad_prof(professor());
+                ultimo_cad_prof(ultimo_professor());
                 ?>
             </tbody>
         </table>
         <div>
-            <a href="./cadastrar.php"><input type="submit" value="Cadastrar novo" class="botao"></a>
+            <a href="./cadastrar.php"><input type="submit" value="CADASTRAR NOVO" class="botao"></a>
         </div>
     </div>
 </body>

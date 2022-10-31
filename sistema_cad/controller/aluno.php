@@ -13,12 +13,13 @@
     function dados_form_aluno($dados)
     {
         $dados_form = array(
+            'id' => (empty($dados['id_aluno']) ? '' : $dados['id_aluno']),
             'nome' => (empty($dados['nome']) ? '' : $dados['nome']),
             'email' => (empty($dados['email']) ? '' : $dados['email']),
             'celular' => (empty($dados['celular']) ? '' : $dados['celular']),
             'cpf' => (empty($dados['cpf']) ? '' : $dados['cpf']),
             'nasc' => (empty($dados['nasc']) ? '' : $dados['nasc']),
-            'turno' => (empty($dados['turno']) ? '' : $dados['turno'])
+            'opcoes-turno' => (empty($dados['opcoes-turno']) ? '' : $dados['opcoes-turno'])
         );
 
         return $dados_form;
@@ -26,7 +27,7 @@
 
     function tabela_alunos($dados)
     {
-        foreach ($dados as $key => $value) {
+        foreach ($dados as $value) {
             
         echo "<tr class='resultados-tbody'><br>
                     <td width='50px'>" . $value[0] . "</td>
@@ -38,6 +39,7 @@
                     <td width='100px'>" . $value[6] . "</td>
                     <td width='120px'>" . $value[7] . "</td>
                     <td width='160px'>" . $value[8] . "</td>
+                    <td width='100px'><a onclick='editar(".$value[0].")'><input type='button' value='Editar'></a></td>
                 </tr>";
         };
     }
@@ -54,6 +56,7 @@
                 <td width='120px'>" . $dados['turma'] . "</td>
                 <td width='120px'>" . $dados['turno'] . "</td>
                 <td width='160px'>" . $dados['data_cad'] . "</td>
+                <td width='100px'><a href='editar.php'><input type='button' value='Editar'></a></td>
             </tr>";
 
     }
@@ -73,6 +76,28 @@
         } else {
             header('Location:../view/aluno/cadastrado.php');
         }
-
     }
+
+    function popula_form($id)
+    {
+        $conn = new Db_alunos;
+        $selec = $conn->aluno_id($id);
+
+        return $selec;
+    }
+
+    function edita_cad_aluno($dados)
+    {
+        $conn = new Db_alunos;
+        $edita_cad = $conn->editar_cad_aluno($dados);
+
+        if($edita_cad) {
+            header('Location:../view/aluno/lista.php');
+        } else {
+            echo "Erro ao editar formulário";
+        }
+
+        return $edita_cad;
+    }
+    
 ?>

@@ -1,9 +1,9 @@
-<?php 
-    include_once __DIR__ . '/../../controller/professor.php';
+<?php
+include_once __DIR__ . '/../../controller/professor.php';
 
-    // var_dump(popula_form(235));
-    // exit();
-    
+// var_dump(popula_form(235));
+// exit();
+
 ?>
 
 <!DOCTYPE html>
@@ -17,24 +17,27 @@
     <title>Editar cadastro</title>
 </head>
 <?php require_once '../cabecalho.php';  ?>
+
 <body>
     <div class="div-cad_professor">
         <form action="/estudos_php/sistema_cad/controller/validacao_professor.php" method="POST" class="form-cad_professor">
             <h2>Editar cadastro - Professor</h2>
             <hr><br>
-            <input type="hidden" name="id" value="<?php  ?>">
+            <input type="text" hidden name="acao" id="acao"value="editar" >
+            ID<br>
+            <input type="text" name="id" id="id_prof" class="botao" value="" >
             Nome<br>
-            <input type="text" name="nome" id="nome" class="botao" value="<?php echo popula_form(235)['id'] ?>"><br>
+            <input type="text" name="nome" id="nome" class="botao"  value=""><br>
             E-mail<br>
-            <input type="email" name="email" id="email" class="botao" value="<?php echo popula_form(235)['nome'] ?>"><br>
+            <input type="email" name="email" id="email" class="botao"  value=""><br>
             Celular<br>
-            <input type="tel" name="celular" id="celular" class="botao"><br>
+            <input type="tel" name="celular" id="celular" class="botao"  value=""><br>
             CPF<br>
-            <input type="text" name="cpf" id="cpf" class="botao"><br>
+            <input type="text" name="cpf" id="cpf" class="botao"  value=""><br>
             Data de nascimento<br>
-            <input type="date" name="nasc" id="nasc" class="botao"><br>
+            <input type="date" name="nasc" id="nasc" class="botao"  value=""><br>
             Selecione o turno<br>
-            <select name="opcoes-turno" id="opcoes-turno" class="botao">
+            <select name="opcoes-turno" id="opcoes-turno" class="botao"  value="">
                 <option name="turno" value="manha">Manhã</option>
                 <option name="turno" value="tarde">Tarde</option>
                 <option name="turno" value="noite">Noite</option>
@@ -46,3 +49,21 @@
 </body>
 
 </html>
+<script>
+    /**Recebe um objeto com os dados do prof para preencher o formulário */
+   /*  function preenche_form(dados_by_id) {
+
+        document.querySelector("#id_prof").value = dados_by_id['id'];
+        document.querySelector("#nome").value = dados_by_id['nome'];
+        document.querySelector("#email").value = dados_by_id['email'];
+        document.querySelector("#celular").value = dados_by_id['telefone'];
+        document.querySelector("#cpf").value = dados_by_id['cpf'];
+        document.querySelector("#nasc").value = dados_by_id['data_nasc'];
+        document.querySelector("#opcoes-turno").value = dados_by_id['turno'];
+
+        return;
+    }
+
+    preenche_form('id'); */
+
+</script>

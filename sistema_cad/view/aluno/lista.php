@@ -31,6 +31,7 @@ require_once '../../controller/aluno.php';
                     <th width='100px'>Turma</th>
                     <th width='120px'>Turno</th>
                     <th width='160px'>Data de Cadastro</th>
+                    <th width='100px'>Ações</th>
                 </tr>
             </thead>
             <tbody id='tbody'>
@@ -42,5 +43,16 @@ require_once '../../controller/aluno.php';
     </div>
     <a href="cadastrar.php"><input type="submit" value="CADASTRAR NOVO" class="botao"></a>
 </body>
+
+<script type="text/javascript">
+
+    /** Redireciona para o formulário de edição */
+    function editar(id) {
+        if (id) {
+            window.location.href = "editar.php";
+        }
+    }
+
+</script>
 
 </html>
