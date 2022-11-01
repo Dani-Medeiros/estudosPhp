@@ -23,7 +23,8 @@ include_once __DIR__ . '/../../controller/professor.php';
         <form action="/estudos_php/sistema_cad/controller/validacao_professor.php" method="POST" class="form-cad_professor">
             <h2>Editar cadastro - Professor</h2>
             <hr><br>
-            <input type="text" hidden name="acao" id="acao"value="editar" >
+            <input type="text" hidden name="acao-edit" id="acao-edit" value="editar">
+            <input type="text" hidden name="acao-del" id="acao-del" value="deletar">
             ID<br>
             <input type="text" name="id" id="id_prof" class="botao" value="" >
             Nome<br>

@@ -36,7 +36,8 @@
                 <td width='100px'>".$dados['data_nasc']."</td>
                 <td width='100px'>".$dados['turno']."</td>
                 <td width='140px'>".$dados['data_cad']."</td>
-                <td width='100px'><a href='editar.php'><input type='button' value='Editar'></a></td>
+                <td width='50px'><a href='acoes.php'><input type='button' value='Editar'></a></td>
+                <td width='50px'><a href='acoes.php'><input type='button' value='Deletar'></a></td>
             </tr>";
     }
     
@@ -52,12 +53,11 @@
                     <td width='100px'>".$value[5]."</td>
                     <td width='100px'>".$value[6]."</td>
                     <td width='140px'>".$value[7]."</td>
-                    <td width='100px'><a onclick='editar(".$value[0].")'><input type='button' value='Editar'></a></td>
+                    <td width='50px'><a onclick='editar(".$value[0].")'><input type='button' value='Editar'></a></td>
+                    <td width='50px'><a onclick='deletar(".$value[0].")'><input type='button' value='Deletar'></a></td>
                  </tr>";
         }
     }
-
-
 
     function mostra_lista_prof()
     {
@@ -76,10 +76,10 @@
         }
     }
 
-    function popula_form($id)
+    function popula_form($dados)
     {
         $conn = new Db_professores;
-        $selec = $conn->prof_id($id);
+        $selec = $conn->prof_id($dados);
 
         return $selec;
     }
@@ -98,12 +98,14 @@
         return $edita_cad;
     }
 
-    function deleta_cad_prof($id)
+    function del_cad_prof($dados)
     {
         $conn = new Db_professores;
-        $resultado = $conn->deleta_cad_prof($id);
+        $resultado = $conn->deleta_cad_prof($dados);
 
         if($resultado) {
-
+            header('Location:../view/professor/lista.php');
+        } else {
+            echo "Erro ao deletar cadastro";
         }
     }

@@ -25,7 +25,7 @@
                     <th width='100px'>Nascimento</th>
                     <th width='100px'>Turno</th>
                     <th width='140px'>Data de Cadastro</th>
-                    <th width='200px'>Ações</th>
+                    <th width='120px'>Ações</th>
                 </tr>
             </thead>
             <tbody id='tbody'>

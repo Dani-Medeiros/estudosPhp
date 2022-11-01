@@ -17,10 +17,10 @@
             return $pegar;
         }
 
-        public function prof_id($id)
+        public function prof_id($dados)
         {
             $connect = $this->conectar($this->dados_conexao('professores'));
-            $seleciona = mysqli_query($connect[0], 'SELECT * FROM professores WHERE id = '.$id.'');
+            $seleciona = mysqli_query($connect[0], 'SELECT * FROM professores WHERE id = '.$dados.'');
 
             if($seleciona){
                 $pega_id = $seleciona->fetch_assoc();
@@ -93,14 +93,14 @@
             return $edita_cad;
         }
 
-        public function deleta_cad_prof($id)
+        public function deleta_cad_prof($dados)
         {
             $connect = $this->conectar($this->dados_conexao('professores'));
             $deleta_cad = mysqli_query($connect[0],
-            "DELETE FROM professores WHERE id = '".$id."'");
+            "DELETE FROM professores WHERE id = '".$dados."'");
 
             if($deleta_cad) {
-                $deletar = $deleta_cad->fetch_row();
+                $deletar = $deleta_cad->fetch_assoc();
             } else {
                 echo 'Erro ao tentar deletar professor!';
             }

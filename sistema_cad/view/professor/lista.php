@@ -28,7 +28,7 @@ require_once '../../controller/professor.php';
                     <th width='100px' id="nasc-prof">Nascimento</th>
                     <th width='100px' id="turno-prof">Turno</th>
                     <th width='140px' id="data-cad-prof">Data de Cadastro</th>
-                    <th width='100' id="acoes-prof">Ações</th>
+                    <th width='120px' id="acoes-prof">Ações</th>
                 </tr>
             </thead>
             <tbody id='tbody'>
@@ -46,7 +46,14 @@ require_once '../../controller/professor.php';
     /** Redireciona para o formulário de edição */
     function editar(id) {
         if (id) {
-            window.location.href = "editar.php";
+            window.location.href = "acoes.php";
+        }
+    }
+
+    /** Redireciona novamente para a lista.php */
+    function deletar(id) {
+        if(id) {
+            window.location.href = "lista.php";
         }
     }
 

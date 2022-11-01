@@ -21,6 +21,20 @@
         return $dados_form;
     }
 
+    function tabela_materias($dados)
+    {
+        foreach ($dados as $value) {
+            echo "<tr id='result-tbody'>
+                    <td width='50px'>".$value[0]."</td>
+                    <td width='150px'>".$value[1]."</td>
+                    <td width='150px'>".$value[2]."</td>
+                    <td width='140px'>".$value[3]."</td>
+                    <td width='50px'><a onclick='editar(".$value[0].")'><input type='button' value='Editar'></a></td>
+                    <td width='50px'><a onclick='deletar(".$value[0].")'><input type='button' value='Deletar'></a></td>
+                 </tr>";
+        }
+    }
+
     function mostra_lista_materias()
     {
         $conn = new Db_materias;
