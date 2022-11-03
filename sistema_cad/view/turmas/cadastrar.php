@@ -30,7 +30,8 @@
                 <select name="nome_materia" id="materia" class="botao">
                     <?php lista_materias(); ?>
                 </select>
-                <a href="/estudos_php/sistema_cad/controller/turmas.php"><input type="submit" value="CADASTRAR" class="botao"></a>
+                <a href="./cadastrar.php"><input type="submit" value="CADASTRAR TURMA" class="botao"></a>
+                <a href="./lista.php"><input type="button" value="LISTA DAS TURMAS" class="botao"></a>
             </form>
         </fieldset>
     </div>

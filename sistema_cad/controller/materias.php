@@ -74,6 +74,20 @@
             </tr>";
     }
 
+    function edita_cad_materia($dados)
+    {
+        $conn = new Db_materias;
+        $edita_cad = $conn->editar_cad_materia($dados);
+
+        if ($edita_cad) {
+            header('Location:../view/materias/lista.php');
+        } else {
+            echo "Erro ao editar formulário";
+        }
+
+        return $edita_cad;
+    }
+
 ?>
 
 

@@ -23,6 +23,20 @@
         return $dados_form;
     }
 
+    function tabela_turmas($dados)
+    {
+        foreach($dados as $value){
+            echo "<tr id='result-tbody'>
+                    <td width='50px'>".$value[0]."</td>
+                    <td width='150px'>".$value[1]."</td>
+                    <td width='150px'>".$value[2]."</td>
+                    <td width='140px'>".$value[3]."</td>
+                    <td width='50px'><a onclick='editar(".$value[0].")'><input type='button' value='Editar'></a></td>
+                    <td width='50px'><a onclick='deletar(".$value[0].")'><input type='button' value='Deletar'></a></td>
+                </tr>";
+        }
+    }
+
     function mostra_lista_turmas()
     {
         $conn = new Db_turmas;
@@ -61,6 +75,18 @@
                 <td width='150px'>".$dados['turno']."</td>
                 <td width='250px'>".$dados['nome_materia']."</td>
             </tr>";
+    }
+    
+    function edita_cad_turma($dados)
+    {
+        $conn = new Db_turmas;
+        $edita = $conn->editar_cad_turma($dados);
+
+        if($edita) {
+            header('Location:../view/turmas/lista.php');
+        } else {
+            echo 'Erro ao editar formulário';
+        }
     }
 
 ?>
