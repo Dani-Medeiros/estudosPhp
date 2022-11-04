@@ -17,10 +17,23 @@
             return $pegar;
         }
 
-        public function prof_id($dados)
+        public function prof_id($id)
         {
             $connect = $this->conectar($this->dados_conexao('professores'));
-            $seleciona = mysqli_query($connect[0], 'SELECT * FROM professores WHERE id = '.$dados.'');
+            $seleciona = mysqli_query($connect[0], 
+            'SELECT
+                id,
+                nome,
+                email,
+                telefone,
+                cpf,
+                data_nasc,
+                turno
+            FROM 
+                professores 
+            WHERE 
+                id = '.$id
+            );
 
             if($seleciona){
                 $pega_id = $seleciona->fetch_assoc();

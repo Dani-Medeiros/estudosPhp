@@ -59,6 +59,44 @@
         }
     }
 
+    function form_edita_prof($dados)
+    {
+        echo  "ID<br>
+                <input type='text' name='id' class='botao' value='".$dados['id']."' >
+                Nome<br>
+                <input type='text' name='nome' class='botao'  value='".$dados['nome']."'><br>
+                E-mail<br>
+                <input type='email' name='email' class='botao'  value='".$dados['email']."'><br>
+                Celular<br>
+                <input type='tel' name='celular' class='botao'  value='".$dados['telefone']."'><br>
+                CPF<br>
+                <input type='text' name='cpf' class='botao'  value='".$dados['cpf']."'><br>
+                Data de nascimento<br>
+                <input type='date' name='nasc' class='botao'  value='".$dados['data_nasc']."'><br>
+                Selecione o turno<br>
+                <select name='opcoes-turno' class='botao'  value='".$dados['turno']."'>
+                    <option name='turno' value='manha'>Manhã</option>
+                    <option name='turno' value='tarde'>Tarde</option>
+                    <option name='turno' value='noite'>Noite</option>
+                </select><br><br>";
+    }
+
+    // print_r(form_prof_preenchido(242));
+    // exit();
+
+    function popula_form($id)
+    {
+        $conn = new Db_professores;
+        $selec = $conn->prof_id($id);
+
+        return $selec;
+    }
+
+    function form_prof_preenchido($id)
+    {
+        return form_edita_prof(popula_form($id));
+    }
+
     function mostra_lista_prof()
     {
         $conn = new Db_professores;
@@ -74,14 +112,6 @@
         } else {
             header('Location:../view/professor/cadastrado.php');
         }
-    }
-
-    function popula_form($dados)
-    {
-        $conn = new Db_professores;
-        $selec = $conn->prof_id($dados);
-
-        return $selec;
     }
 
     function edita_cad_prof($dados)

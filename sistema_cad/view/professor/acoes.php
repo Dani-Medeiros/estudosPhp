@@ -1,9 +1,5 @@
 <?php
 include_once __DIR__ . '/../../controller/professor.php';
-
-// var_dump(popula_form(235));
-// exit();
-
 ?>
 
 <!DOCTYPE html>
@@ -25,25 +21,11 @@ include_once __DIR__ . '/../../controller/professor.php';
             <hr><br>
             <input type="text" hidden name="acao-edit" id="acao-edit" value="editar">
             <input type="text" hidden name="acao-del" id="acao-del" value="deletar">
-            ID<br>
-            <input type="text" name="id" id="id_prof" class="botao" value="" >
-            Nome<br>
-            <input type="text" name="nome" id="nome" class="botao"  value=""><br>
-            E-mail<br>
-            <input type="email" name="email" id="email" class="botao"  value=""><br>
-            Celular<br>
-            <input type="tel" name="celular" id="celular" class="botao"  value=""><br>
-            CPF<br>
-            <input type="text" name="cpf" id="cpf" class="botao"  value=""><br>
-            Data de nascimento<br>
-            <input type="date" name="nasc" id="nasc" class="botao"  value=""><br>
-            Selecione o turno<br>
-            <select name="opcoes-turno" id="opcoes-turno" class="botao"  value="">
-                <option name="turno" value="manha">Manhã</option>
-                <option name="turno" value="tarde">Tarde</option>
-                <option name="turno" value="noite">Noite</option>
-            </select><br><br>
-            <input type="submit" value="ENVIAR DADOS" class="botao">
+            <?php 
+                form_prof_preenchido(242);
+                //var_dump(form_prof_preenchido($dados));
+            ?>
+            <input type="submit" value="EDITAR DADOS" class="botao">
             <a href="lista.php"><input type="button" value="ACESSAR LISTAGEM" class="botao"></a>
         </form>
     </div>

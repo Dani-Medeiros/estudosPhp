@@ -24,6 +24,12 @@
                     <input type="text" name="id" id="id-turma" class="botao"><br>
                     Turma: <br>
                     <input type="text" name="turma" id="nome-turma" class="botao"><br>
+                    Turno: <br>
+                    <select name="turno" id="opcoes-turno" class="botao">
+                        <option name="turno" value="manha">Manhã</option>
+                        <option name="turno" value="tarde">Tarde</option>
+                        <option name="turno" value="noite">Noite</option>
+                    </select>
                     Matéria: <br>
                     <select name="materia" id="materia" class="botao">
                         <?php

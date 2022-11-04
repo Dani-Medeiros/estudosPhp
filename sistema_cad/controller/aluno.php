@@ -78,10 +78,10 @@
         }
     }
 
-    function popula_form($id)
+    function popula_form($dados)
     {
         $conn = new Db_alunos;
-        $selec = $conn->aluno_id($id);
+        $selec = $conn->aluno_id($dados);
 
         return $selec;
     }

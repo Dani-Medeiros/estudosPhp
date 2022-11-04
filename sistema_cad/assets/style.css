@@ -59,10 +59,16 @@ a {
     border-radius: 5px;
     padding: 5px;
     margin-bottom: 10px;
-    width: 380px;
+    /* width: 380px; */
 }
 
 .botao {
+    background-color:rgb(255, 215, 215);
+    margin-top: 10px;
+    margin-right: 20px;
+}
+
+.input {
     background-color:rgb(255, 215, 215);
     margin-top: 10px;
     margin-right: 20px;

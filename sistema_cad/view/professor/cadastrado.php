@@ -9,7 +9,6 @@
     <title>Cadastro realizado</title>
 </head>
 <?php include_once '../cabecalho.php'; ?>
-
 <body>
     <h1>Seu cadastro foi realizado com sucesso!</h1>
     <hr><br>
