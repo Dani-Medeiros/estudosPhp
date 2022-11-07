@@ -59,7 +59,7 @@
         }
     }
 
-    function form_edita_prof($dados)
+    /* function form_edita_prof($dados)
     {
         echo  "ID<br>
                 <input type='text' name='id' class='botao' value='".$dados['id']."' >
@@ -79,22 +79,17 @@
                     <option name='turno' value='tarde'>Tarde</option>
                     <option name='turno' value='noite'>Noite</option>
                 </select><br><br>";
-    }
+    } */
 
     // print_r(form_prof_preenchido(242));
     // exit();
 
-    function popula_form($id)
+    function dados_prof($id)
     {
         $conn = new Db_professores;
         $selec = $conn->prof_id($id);
 
-        return $selec;
-    }
-
-    function form_prof_preenchido($id)
-    {
-        return form_edita_prof(popula_form($id));
+        return json_encode($selec);
     }
 
     function mostra_lista_prof()
@@ -139,3 +134,6 @@
             echo "Erro ao deletar cadastro";
         }
     }
+?>
+
+<script src="http://localhost/estudos_php/sistema_cad/js/jquery.js"></script>

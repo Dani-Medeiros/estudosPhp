@@ -1,6 +1,6 @@
 <?php
 
-    require_once 'professor.php'; 
+    require_once 'professor.php';
 
     if ($_POST['acao-edit'] == 'editar') {
         
