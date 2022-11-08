@@ -85,7 +85,7 @@
         public function editar_cad_prof($dados)
         {
             $connect = $this->conectar($this->dados_conexao('professores'));
-            $edita_cad = mysqli_query($connect[0], 
+            $query = mysqli_query($connect[0], 
             "UPDATE professores 
             SET
                 nome = '".$dados['nome']."',
@@ -96,14 +96,12 @@
                 turno = '".$dados['opcoes-turno']."'
             WHERE 
                 id = '".$dados['id']."'");
-
-            if ($edita_cad) {
+            
+            if ($query) {
                 echo 'ok';
             } else {
                 echo 'erro mysql';
             }
-
-            return $edita_cad;
         }
 
         public function deleta_cad_prof($dados)

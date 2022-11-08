@@ -37,7 +37,8 @@ require_once '../../controller/professor.php';
             </thead>
             <tbody id='tbody'>
                 <?php
-                tabela_professores(mostra_lista_prof());
+                    $tabela = new Professor;
+                    $tabela->tabela_professores($tabela->mostra_lista_prof());
                 ?>
             </tbody>
         </table>
@@ -58,115 +59,95 @@ require_once '../../controller/professor.php';
                 <div class="row">
                     <form action="http://localhost/estudos_php/sistema_cad/controller/validacao_professor.php" method="POST">
                         <div>
-                            <input type="text" hidden name="acao_edit" id="acao_edit" value="editar">
-                            <input type="text" hidden name="acao_del" id="acao_del" value="deletar">
+                            <input type="text" hidden name="acao-edit" id="acao-edit" value="editar">
+                            <input type="text" hidden name="acao-del" id="acao_del" value="deletar">
                             <div style="text-align:left">
                                 ID<br>
-                                <input type='text' class='botao' name='id' id="id" value=''>
+                                <input type='text' class='botao' name='id' id="id">
                             </div>
                             <div>
                                 Nome<br>
-                                <input type='text' class='botao' name='nome' id="nome" value=''><br>
+                                <input type='text' class='botao' name='nome' id="nome"><br>
                             </div>
                         </div>
                         <div>
                             <div>
                                 E-mail<br>
-                                <input type='email' name='email' class='botao' id="email" value=''><br>
+                                <input type='email' name='email' class='botao' id="email"><br>
                             </div>
                             <div>
                                 Celular<br>
-                                <input type='tel' name='celular' class='botao' id="celular" value=''><br>
+                                <input type='tel' name='celular' class='botao' id="celular"><br>
                             </div>
                         </div>
                         <div>
                             <div>
                                 CPF<br>
-                                <input type='text' name='cpf' class='botao' id="cpf" value=''><br>
+                                <input type='text' name='cpf' class='botao' id="cpf"><br>
                             </div>
                             <div>
                                 Data de nascimento<br>
-                                <input type='date' name='nasc' class='botao' id="nasc" value=''><br>
+                                <input type='date' name='nasc' class='botao' id="nasc"><br>
                             </div>
                             <div>
                                 Selecione o turno<br>
-                                <select name='opcoes-turno' class='botao' id="opcoes_turno" value=''>
+                                <select name='opcoes-turno' class='botao' id="opcoes-turno">
                                     <option name='turno' value='manha'>Manhã</option>
                                     <option name='turno' value='tarde'>Tarde</option>
                                     <option name='turno' value='noite'>Noite</option>
                                 </select><br><br>
                             </div>
                         </div>
+                        <input type="submit" value="Editar" class="botao">
+                        <a href="lista.php"><input type="button" value="Acessar Lista" class="botao"></a>
                     </form>
                 </div>
             </div>
             <div class="modal-footer">
                 <!-- <button type="submit" class="btn btn-default btn-default pull-left" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span></button> -->
-                <input type="submit" value="Editar Cadastro" onclick="editar(id);" class="botao">
-                <a href="lista.php"><input type="button" value="Acessar Lista" class="botao"></a>
             </div>
         </div>
     </div>
 </div>
 
-
 <script type="text/javascript">
+
     /** Redireciona para o formulário de edição */
-    function editar() {
+    function editar(id) {
 
         $("#myModal").modal("show")
-        $('#id').val(id)
+        /* $('#id').val(id)
         $('#nome').val(nome)
         $('#email').val(email)
-        $('#celular').val(celular)
+        $('#celular').val(telefone)
         $('#cpf').val(cpf)
-        $('#nasc').val(nasc)
-        $('#opcoes_turno').val(opcoes_turno)
+        $('#nasc').val(data_nasc)
+        $('#opcoes-turno').val(turno) */
+
+        // console.log("alguma coisa")
 
         $.ajax({
-            url: '/estudos_php/sistema_cad/controller/teste_ajax.php',
+            url: '../../teste_ajax.php',
+            method: 'GET',
             dataType: 'json',
-            type: 'GET',
             data: [
                 id => id,
                 nome => nome,
                 email => email,
-                celular => celular,
+                celular => telefone,
                 cpf => cpf,
-                nasc => nasc,
-                opcoes_turno => opcoes_turno
+                nasc => data_nasc,
+                opcoes_turno => turno
             ],
-        }).done(function(result) {
-
-            $("acao_edit").bind("click", editar())
-
-            if (result == 1) {
-                console.log('Cadastro editado com sucesso!');
-                
-            } else {
-                console.log('Erro ao editar cadastro. Tente novamente mais tarde!');
-                exit();
-            }
-
-
+            success: function response() {
+                console.log("alguma coisa")
+            },
+            error: 
+                console.log('erroooo')
+            
         });
 
-        /* success: function response(data) {
-                console.log(response)
-                if (response <= 1) {
-                    alert('Cadastro editado com sucesso!');
-                } else {
-                    alert('Erro ao editar cadastro. Tente novamente mais tarde!');
-                }
-                
-                
-            },
-            
-        })
- */
     }
-    // var_dump(json_encode(editar()));
-    // exit();
 
     /** Redireciona novamente para a lista.php */
     function deletar(id) {
@@ -177,8 +158,5 @@ require_once '../../controller/professor.php';
 </script>
 <script src="http://localhost/estudos_php/sistema_cad/js/jquery.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-<?php
-    var_dump($_POST);
-    exit();
-    ?>
+
 </html>

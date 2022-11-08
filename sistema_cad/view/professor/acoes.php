@@ -1,4 +1,4 @@
-<?php
+<!-- <?php
 include_once __DIR__ . '/../../controller/professor.php';
 ?>
 
@@ -12,17 +12,17 @@ include_once __DIR__ . '/../../controller/professor.php';
     <link rel="stylesheet" href="../../assets/style.css">
     <title>Editar cadastro</title>
 </head>
-<?php require_once '../cabecalho.php';  ?>
+<?php/*  require_once '../cabecalho.php';  */ ?>
 
 <body>
     <div class="div-cad_professor">
         <form action="/estudos_php/sistema_cad/controller/validacao_professor.php" method="POST" class="form-cad_professor">
             <h2>Editar cadastro - Professor</h2>
             <hr><br>
-            <input type="text" hidden name="acao-edit" id="acao-edit" value="editar">
-            <input type="text" hidden name="acao-del" id="acao-del" value="deletar">
+            <input type="text" hidden name="acao_edit" id="acao_edit" value="editar">
+            <input type="text" hidden name="acao_del" id="acao_del" value="deletar">
             <?php 
-                form_prof_preenchido(242);
+                /* form_prof_preenchido(242); */
                 //var_dump(form_prof_preenchido($dados));
             ?>
             <input type="submit" value="EDITAR DADOS" class="botao">
@@ -49,4 +49,4 @@ include_once __DIR__ . '/../../controller/professor.php';
 
     preenche_form('id'); */
 
-</script>
+</script> -->

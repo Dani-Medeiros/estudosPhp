@@ -13,7 +13,7 @@
     <main>
         <section>
             <div class="div-cad_professor">
-                <form action="/estudos_php/sistema_cad/controller/validacao_professor.php" method="POST" class="form-cad_professor">
+                <form action="http://localhost/estudos_php/sistema_cad/controller/validacao_professor.php" method="POST" class="form-cad_professor">
                     <h2>Cadastro Professor</h2>
                     <hr><br>
                     <input type="hidden" name="id">
