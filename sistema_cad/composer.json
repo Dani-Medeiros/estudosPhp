@@ -1,12 +1,27 @@
 {
-    "name": "DaniMedeirosDev/estudos_php",
-    "description": "description_text",
+    "name": "Dani-Medeiros/estudosPhp",
+    "description": "Projeto CRUD com MVC (PHP e JavaScript)",
     "minimum-stability": "stable",
-    "license": "proprietary",
+    "license": "Dani-Medeiros",
     "authors": [
         {
             "name": "Daniele Medeiros",
-            "email": "danielemedeiros9@gmail.com"
+            "email": "danielemedeiros9@gmail.com",
+            "role": "Developer"
         }
-    ]
+    ],
+    "config": {
+        "vendor-dir": "vendor"
+    },
+    "autoload": {
+        "psr-4": {
+            "Source\\": "source/"
+        },
+        "files": [
+            "source/Config.php"
+        ]
+    },
+    "require": {
+        "phpmailer/phpmailer": "6.6.*"
+    }
 }
