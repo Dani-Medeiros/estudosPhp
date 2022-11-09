@@ -32,8 +32,8 @@
             FROM 
                 professores 
             WHERE 
-                id = '.$id
-            );
+                id = '.$id.'
+            ');
 
             if($seleciona){
                 $pega_id = $seleciona->fetch_assoc();
@@ -61,7 +61,7 @@
                         '".$dados['celular']."',
                         '".$dados['cpf']."',
                         '".$dados['nasc']."',
-                        '".$dados['opcoes-turno']."'
+                        '".$dados['opcoes_turno']."'
                 )"
             );
 
@@ -93,7 +93,7 @@
                 telefone = '".$dados['celular']."',
                 cpf = '".$dados['cpf']."',
                 data_nasc = '".$dados['nasc']."',
-                turno = '".$dados['opcoes-turno']."'
+                turno = '".$dados['opcoes_turno']."'
             WHERE 
                 id = '".$dados['id']."'");
             

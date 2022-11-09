@@ -28,7 +28,7 @@
                     Data de nascimento<br>
                     <input type="date" name="nasc" id="nasc" class="botao"><br>
                     Selecione o turno<br>
-                    <select name="opcoes-turno" id="opcoes-turno" class="botao">
+                    <select name="opcoes_turno" id="opcoes_turno" class="botao">
                         <option name="turno" value="manha">Manhã</option>
                         <option name="turno" value="tarde">Tarde</option>
                         <option name="turno" value="noite">Noite</option>

@@ -1,12 +1,10 @@
 <?php
 
-    $conn = new Db_professores;
-    $selec = $conn->professor();
+/*     require_once('controller/professor.php');
+    // $id = '';
+    $prof = new Professor;
+    $selec = $prof->dados_prof($id);
 
-    echo json_encode('TA MALUCO');
-
-    /* require_once 'professor.php';
-
-    dados_prof($id); */
+    echo json_encode($selec); */
 
 ?>

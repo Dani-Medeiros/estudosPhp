@@ -42,7 +42,7 @@ include_once __DIR__ . '/../../controller/professor.php';
         document.querySelector("#celular").value = dados_by_id['telefone'];
         document.querySelector("#cpf").value = dados_by_id['cpf'];
         document.querySelector("#nasc").value = dados_by_id['data_nasc'];
-        document.querySelector("#opcoes-turno").value = dados_by_id['turno'];
+        document.querySelector("#opcoes_turno").value = dados_by_id['turno'];
 
         return;
     }

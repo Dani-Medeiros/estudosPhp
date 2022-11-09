@@ -1,0 +1,12 @@
+{
+    "name": "DaniMedeirosDev/estudos_php",
+    "description": "description_text",
+    "minimum-stability": "stable",
+    "license": "proprietary",
+    "authors": [
+        {
+            "name": "Daniele Medeiros",
+            "email": "danielemedeiros9@gmail.com"
+        }
+    ]
+}

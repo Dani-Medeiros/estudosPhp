@@ -4,7 +4,7 @@
 
     $professor = new Professor;
     
-    if ($_POST['acao-edit'] == 'editar') {
+    if ($_POST['acao-edit'] == 'Editar') {
         
         $professor->edita_cad_prof($_POST);
 
