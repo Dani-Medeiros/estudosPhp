@@ -14,11 +14,11 @@
     <div id="container-siscad">
         <div id="cad-aluno">
             <h2>Eu sou aluno</h2>
-            <a href="/estudos_php/sistema_cad/view/aluno/cadastrar.php"><input type="submit" value="Logar aqui" class="botao"></a>
+            <a href="/estudosPhp/sistema_cad/view/aluno/cadastrar.php"><input type="submit" value="Logar aqui" class="botao"></a>
         </div>
         <div id="cad-professor">
             <h2>Eu sou professor</h2>
-            <a href="/estudos_php/sistema_cad/view/professor/cadastrar.php"><input type="submit" value="Logar aqui" class="botao"></a>
+            <a href="/estudosPhp/sistema_cad/view/professor/cadastrar.php"><input type="submit" value="Logar aqui" class="botao"></a>
         </div>
     </div>
 </body>

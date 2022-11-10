@@ -59,7 +59,7 @@ require_once '../../controller/professor.php';
             </div>
             <div class="modal-body">
                 <div class="row">
-                    <form action="http://localhost/estudos_php/sistema_cad/controller/validacao_professor.php" method="POST">
+                    <form action="http://localhost/estudosPhp/sistema_cad/controller/validacao_professor.php" method="POST">
                         <div>
                             <input type="text" hidden name="acao-edit" id="acao-edit" value="Editar">
                             <input type="text" hidden name="acao-del" id="acao_del" value="deletar">
@@ -120,7 +120,7 @@ require_once '../../controller/professor.php';
         $("#myModal").modal("show")
 
             $.ajax({
-                url: '/estudos_php/sistema_cad/controller/professor.php/professor/dados_prof?id='+id,
+                url: '/estudosPhp/sistema_cad/controller/professor.php/professor/dados_prof?id='+id,
                 type: 'GET',
                 dataType: 'json',
                 data: [

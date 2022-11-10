@@ -1,4 +1,35 @@
-<!DOCTYPE html>
+<?php
+
+    require __DIR__ . "../vendor/autoload.php";
+
+    use CoffeeCode\Router\Router;
+
+    $router = new Router(projectUrl: "URL_BASE");
+    $router->namespace("source\app");
+
+    /**
+     * WEB
+     * home
+     */
+
+    $router->group(null);
+    $router->get("/", "Web:home");
+
+    /* $router->group("ops");
+    $router->get("/{errcode}", function($data) {
+        echo "<h1>Erro {$data['errcode']}<h1>";
+        var_dump($data);
+    });
+
+    $router->dispatch();
+
+    if($router->error()) {
+        $router->redirect("/ops/{$router->error()}");
+    } */
+    
+?>
+
+<!-- <!DOCTYPE html>
 <html lang="pt-br">
 
 <head>
@@ -20,4 +51,4 @@
     </main>
 </body>
 <?php require_once 'rodape.php'; ?>
-</html>
+</html> -->

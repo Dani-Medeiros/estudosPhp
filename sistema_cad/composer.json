@@ -1,5 +1,5 @@
 {
-    "name": "Dani-Medeiros/estudosPhp",
+    "name": "dani_medeiros/estudos_php",
     "description": "Projeto CRUD com MVC (PHP e JavaScript)",
     "minimum-stability": "stable",
     "license": "Dani-Medeiros",
@@ -22,6 +22,6 @@
         ]
     },
     "require": {
-        "phpmailer/phpmailer": "6.6.*"
+        "coffeecode/router": "^2.0"
     }
 }
